@@ -22,5 +22,6 @@ Python has become the programming language of choice for machine learning due to
 2. Never ever use python without a virtual environment, for example anaconda: [Anaconda howto](/modules/howto-anaconda/anaconda.md)
 3. We will use Jupyter notebooks, learn more about them here [Jupyter notebooks](/modules/howto-jupyter/jupyter.md)
 4. Git is essential, learn howto use it!
+5. I highly recommend Visual Studio Code as an IDE
 
 
