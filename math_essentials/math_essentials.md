@@ -26,16 +26,17 @@ Therefore, while it is possible to get started with machine learning using high-
 
 To effectively work on machine learning projects, you need to be familiar with several key mathematical concepts:
 
-- **Vectors and Matrices:** Data is represented as vectors and matrices and therefore are a crucial element in ML (Resources: [MML Book, Sect. 2.1 & Sect. 2.2](https://mml-book.github.io/book/mml-book.pdf), [Khan academy](https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:matrices) [⭐Intuitive view on linear algebra](https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)) 
-  1. Remind yourself what matrix/vector multiplications are and how to calculate them! ([Online Test at Khan Academy](https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:matrices/x9e81a4f98389efdf:multiplying-matrices-by-matrices/v/matrix-multiplication-intro))
+- **Vectors and Matrices:** Data is represented as vectors and matrices and therefore are a crucial element in ML (Resources: [📚MML Book, Sect. 2.1 & Sect. 2.2](https://mml-book.github.io/book/mml-book.pdf), [📚Khan academy](https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:matrices) [⭐Intuitive view on linear algebra](https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)) 
+  1. Remind yourself what matrix/vector multiplications are and how to calculate them! ([📚Online Test at Khan Academy](https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:matrices/x9e81a4f98389efdf:multiplying-matrices-by-matrices/v/matrix-multiplication-intro))
   2. What is a transpose and an inverse of a matrix?
   3. What is a linear equation system and how to solve it?
 - **Differentiation and Integration:** Fundamental for optimization problems (Resources: [⭐Geometric view on calculus](https://www.youtube.com/watch?v=WUvTyaaNkzM&list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr))
   1. What are the basic differentiation rules that you remember from school?
-- **Distributions and probabilities:** Understanding different types of data distributions. (Resources: [Statistics for Data Science without Hypothesis Testing](https://chkra.github.io/ds-lecture/modules/statistical-inference/stat-inf/))
-  1. You need to understand what a normal distribution is and the effect of the mean and standard deviations.
-  2. What is a conditional distribution?
-  3. What is an expected value, what is the standard deviation?
+- **Distributions and probabilities:** Understanding different types of data distributions. 
+  1. What is a random variable? [📚Random Variables](/modules/statistical-inference/stat-inf.md#probability-and-random-variables)
+  2. What is a distribution? [📚Probability Distributions](/modules/statistical-inference/stat-inf.md#probability-distribution)
+  3. You need to understand what a normal distribution is and the effect of the mean and standard deviations.
+  4. What is a conditional distribution? [📺Learn about conditional distributions and Bayes Theorem](https://www.youtube.com/watch?v=HZGCoVF3YvM)
 
 Having a good grasp of these areas will help you dramatically to explore the machine learning world without relying on ease-of-use software and without missing new advances. We will practice quite a lot of these things in lecture.
 
