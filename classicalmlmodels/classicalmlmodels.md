@@ -1,0 +1,123 @@
+---
+title: "Classical machine learning models"
+layout: single
+author_profile: true
+author: Erik Rodner
+toc: false
+classes: wide
+---
+
+In the following, we look into our first machine learning models and their mechanism for training and prediction.
+
+## Nearest Neighbor Classifier
+
+The Nearest Neighbor classifier is a simple, intuitive approach to classification that assigns a data point $$\mathbf{x}$$ the label of its closest training example(s).
+
+Let us be given a set of training examples $$\{(\mathbf{x}^{(i)}, y_i)\}$$, where $$\mathbf{x}^{(i)} \in \mathbb{R}^D$$ are the inputs and $$y_i \in \{1, 2, \ldots, C\}$$ are the class labels.
+For a new input $$\mathbf{x}$$, we find the nearest neighbor and its label by:
+
+$$ \hat{y} = y_j \quad \text{where} \quad j = \arg\min_i \vert \mathbf{x} - \mathbf{x}^{(i)} \vert^2 $$
+
+The notation $$\vert \cdot \vert$$ is used here for the norm of the vector. The last part of the equation is therefore simply
+the quadratic distance of the test example $$\mathbf{x}$$ and the training example $$\mathbf{x}^{(i)}$$
+
+Why is the squared Euclidean distance used instead of the non-squared version? Can you think of other distance measures
+that might be suitable?
+{: .notice--info}
+
+A straightforward extension of the Nearest Neighbor classifier is the $k$-Nearest Classifier: 
+we find the $k$ nearest neighbors and then predict according to a majority vote of them.
+
+Can you think of other strategies for making the prediction based on the $k$ nearest neighbors?
+{: .notice--info}
+
+### Example
+
+Whereas this is a classifier that can be easily written from scratch in 2 minutes, we can also make use again of `scikit-learn`:
+
+```python
+from sklearn.neighbors import KNeighborsClassifier
+import numpy as np
+
+# Sample data
+X_train = np.array([[0, 0], [1, 1], [2, 2], [3, 3]])
+y_train = np.array([0, 0, 1, 1])
+X_test = np.array([[1, 2]])
+
+# Create and fit K-Nearest Neighbor model with k=3
+knn = KNeighborsClassifier(n_neighbors=3)
+knn.fit(X_train, y_train)
+
+# Predict class for new data point
+y_pred = knn.predict(X_test)
+print(f"Predicted class for {X_test}: {y_pred}")
+```
+
+## Decision Trees
+
+A Decision Tree is a predictive model that maps observations about an item to conclusions regarding the item's target value with sequential decisions. 
+A single tree consists of:
+
+1. **Decision Nodes**: Each internal node represents a "test" or decision on an attribute (e.g., whether a person earns more than $50K/year), e.g. $$x_d > \theta$$.
+2. **Branches**: Each branch represents the outcome of the test, leading to either another decision node or a leave.
+3. **Leaves**: Leaf nodes of the tree represent the final output class (classification) or value (regression).
+
+### ⭐Learning a tree for classification
+
+The learning starts with the root node and trying to find the test that best splits the data. For
+a binary classification task, the best split would one that splits the training data directly into the two classes.
+However, this is only a perfect scenario, which can not be directly achieved in non-trivial cases.
+We therefore have to measure the quality of a split using certain criteria.
+
+Let $$p_\kappa$$ be the portion of examples belonging to class $$\kappa$$ in the current decision node $$T$$.
+The *entropy* measures how impure the set of examples is:
+
+$$H(v) = - \sum_{i=\kappa}^{C} p_\kappa \log(p_\kappa)$$
+
+and has a maximal value for a uniform distribution, i.e. we have an equal number of examples from each class.
+We now can compute the so called *information gain*, which is the reduction in entropy after a dataset is split:
+
+$$IG = H(v) - \sum_{v' \;\text{is a subnode of}\; v} P(v') H(v') $$
+
+Where $$H(v')$$ is the entropy of the sub-node $$v'$$ (left or right) and $$P(v')$$ is the proportion of examples in that sub-node relative to the parent node.
+For continuous variables, the tree can decide on a threshold value to split the data. For example, a decision node might split based on whether $$x_d \leq \theta$$, where $$\theta$$
+ is some threshold. 
+
+The selection process for decisions contains recursively in the sub-nodes until a certain termination criteria is reached.
+
+What are suitable termination criteria you can think of? When should we break up and simply place a leaf node?
+{: .notice--info}
+
+### Example
+
+Here's again an example using `sklearn` to demonstrate fitting a decision tree classifier and visualizing it:
+
+```python
+from sklearn.tree import DecisionTreeClassifier, export_text, plot_tree
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Sample data
+X_train = np.array([[2.5, 2.5], [1.0, 1.0], [8.5, 8.5], [7.0, 7.0]])
+y_train = np.array([0, 0, 1, 1])
+X_test = np.array([[4.0, 4.0]])
+
+# Create and fit Decision Tree model
+tree = DecisionTreeClassifier(criterion='gini', max_depth=3, random_state=42)
+tree.fit(X_train, y_train)
+
+# Predict class for new data point
+y_pred = tree.predict(X_test)
+print(f"Predicted class for {X_test}: {y_pred}")
+
+# Visualize the Decision Tree
+plt.figure(figsize=(12,8))
+plot_tree(tree, feature_names=["Feature 1", "Feature 2"], class_names=["Class 0", "Class 1"], filled=True)
+plt.show()
+
+# Print the tree structure in textual format
+tree_rules = export_text(tree, feature_names=["Feature 1", "Feature 2"])
+print(tree_rules)
+```
+
+The `DecisionTreeClassifier` from sklearn has several parameters like `criterion` which specifies the function to measure the quality of a split (`gini` for Gini impurity and `entropy` for information gain). The `max_depth` parameter controls the depth of the tree, helping to avoid overfitting. The method `plot_tree` provides a visual representation of the decision process.
