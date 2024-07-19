@@ -54,7 +54,6 @@ This can lead to models that are systematically wrong in certain ways. Data bias
 For example, ChatGPT is massively biased, since the dataset contains all the nasty biases of our current reality: racial bias, gender bias, bias with respect
 to western cultures, etc. (see the long list of publications about the topic [here](https://scholar.google.com/scholar?hl=de&as_sdt=0%2C5&as_vis=1&q=Data+Bias+GPT&btnG=)).
 
-### Key Points:
 - **Types of Bias**:
   - **Selection Bias**: Non-random sample of data, e.g. just using the first 100 items of the dataset for training and then realizing that they are ordered by time and therfore only cover a small part of the day.
   - **Measurement Bias**: Systematic error in data collection.
@@ -84,7 +83,6 @@ is likely to buy the product, btw. this is all about estimating $$p(y \vert \mat
 However the likeliness of buying a certain product naturally changes over time depending on what I bought already and the season for example. 
 Just training one model and make predictions with it, therefore, does not work.
 
-### Key Points:
 - **Types of Distribution Shift**:
   - **Covariate Shift**: Change in the input features' distribution $$p(\mathbf{x})$$ (change of the camera image over time and season for object detection).
   - **Label Shift**: Change in the output label distribution $$p(y \vert \mathbf{x})$$ changes. 
@@ -99,7 +97,6 @@ Just training one model and make predictions with it, therefore, does not work.
 **Label noise** is the presence of incorrect or inconsistent labels in the training dataset. This can degrade the model's performance by providing inaccurate signals during training.
 Some tasks are even so hard that label noise is a natural thing to deal with and can not be avoided. This is for example the case for medical applications - ask $$N$$ doctors to annotate the data and you get $$N$$ different answers.
 
-### Key Points:
 - **Sources**:
   - Human annotation errors.
   - Ambiguities in data labeling, i.e. it's simply hard.
