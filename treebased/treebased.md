@@ -37,9 +37,9 @@ Where $$H(v')$$ is the entropy of the sub-node $$v'$$ (left or right) and $$P(v'
 For continuous variables, the tree can decide on a threshold value to split the data. For example, a decision node might split based on whether $$x_d \leq \theta$$, where $$\theta$$
  is some threshold. 
 
-The selection process for decisions contains recursively in the sub-nodes until a certain termination criteria is reached.
+The selection process for decisions continues recursively in the sub-nodes until a certain termination criteria is reached.
 
-What are suitable termination criteria you can think of? When should we break up and simply place a leaf node?
+What are suitable termination criteria you can think of? When should we break up and simply place a leaf node? Discuss and list suitable techniques!
 {: .notice--info}
 
 ## Example

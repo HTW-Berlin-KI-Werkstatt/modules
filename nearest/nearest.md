@@ -16,9 +16,9 @@ The Nearest Neighbor classifier is a simple, intuitive approach to classificatio
 Let us be given a set of training examples $$\{(\mathbf{x}^{(i)}, y_i)\}$$, where $$\mathbf{x}^{(i)} \in \mathbb{R}^D$$ are the inputs and $$y_i \in \{1, 2, \ldots, C\}$$ are the class labels.
 For a new input $$\mathbf{x}$$, we find the nearest neighbor and its label by:
 
-$$ \hat{y} = y_j \quad \text{where} \quad j = \arg\min_i \vert \mathbf{x} - \mathbf{x}^{(i)} \vert^2 $$
+$$ \hat{y} = y_j \quad \text{where} \quad j = \arg\min_i \lVert \mathbf{x} - \mathbf{x}^{(i)} \rVert^2 $$
 
-The notation $$\vert \cdot \vert$$ is used here for the norm of the vector. The last part of the equation is therefore simply
+The notation $$\lVert \cdot \rVert$$ is used here for the norm of the vector. The last part of the equation is therefore simply
 the quadratic distance of the test example $$\mathbf{x}$$ and the training example $$\mathbf{x}^{(i)}$$
 
 Why is the squared Euclidean distance used instead of the non-squared version? Can you think of other distance measures
@@ -26,7 +26,7 @@ that might be suitable?
 {: .notice--info}
 
 A straightforward extension of the Nearest Neighbor classifier is the $k$-Nearest Classifier: 
-we find the $k$ nearest neighbors and then predict according to a majority vote of them.
+we find the $$k$$ nearest neighbors and then predict according to a majority vote of them.
 
 Can you think of other strategies for making the prediction based on the $k$ nearest neighbors?
 {: .notice--info}
