@@ -7,8 +7,6 @@ toc: false
 classes: wide
 ---
 
-## Introduction to Ensembles
-
 Ensemble methods are techniques that create multiple models and then combine them to produce improved results. The main idea is that a group of weak learners can come together to form a strong learner. 
 
 ### Types of Ensembles

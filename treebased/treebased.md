@@ -7,8 +7,6 @@ toc: false
 classes: wide
 ---
 
-## Decision Trees
-
 A Decision Tree is a predictive model that maps observations about an item to conclusions regarding the item's target value with sequential decisions. 
 A single tree consists of:
 
