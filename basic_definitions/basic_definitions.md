@@ -3,8 +3,6 @@ title: "Basic definitions"
 layout: single
 author_profile: true
 author: Erik Rodner
-lecture_name: "Machine Learning"
-lecture_desc: "From linear models to GPTs"
 licence: "CC-BY"
 licence_desc: 2024 | HTW Berlin 
 toc: false
