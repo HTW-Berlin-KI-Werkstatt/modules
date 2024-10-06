@@ -28,5 +28,7 @@ Machine learning is broadly categorized into three types:
 - **Unsupervised Learning:** The algorithm is given data without provided labels. The model needs to infer the tasks from the data structure alone. Unsupervised learning is often used in a early phase to detect interesting aspects of the data or help the annotation process.
 - **Reinforcement Learning:** The algorithm learns by interacting with its environment and receiving rewards for performing actions that lead to positive outcomes.
 
+In our lecture, we will mainly focus on supervised learning, since this has resulted in all the amazing applications we have seen in the last years. It is also the method of choice, once you have suitable training data acquired (which is already 90% of the job). Unsupervised learning techniques can be used for clustering your data and exploring datasets - an important step before annotation and labeling. Reinforcement learning is especially important for robotics for e.g. learning action plans for controlling the robot based on current and past observation. This field would require a whole lecture module itself to allow for a deep dive.
+
 Exercise: What are applications you know that involve machine learning? What kind of training data might it need?
 {: .notice--info}

@@ -40,6 +40,8 @@ I skipped on purpose a few topics that would be important if we had more time li
 
 ## Test yourself
 
+Go through the following tasks and questions, if you stumble upon huge obstacles, go back to the lecture material above.
+
 1. Let $$\mathbf{A} = \begin{bmatrix} 1 & 2 \\\ 3 & 4 \end{bmatrix}$$, write down $$\mathbf{A}^T$$ and calculate $$\mathbf{A}^{-1}$$!
 2. If $$\mathbf{x} = \begin{bmatrix} 1 \\\ -1 \end{bmatrix}$$, calculate
   * $$\mathbf{A} \cdot \mathbf{x}$$, 
@@ -49,3 +51,7 @@ I skipped on purpose a few topics that would be important if we had more time li
   * $$f$$ with respect to $$x$$ and 
   * $$f$$ with respect to $$y$$. 
 4. Let $$y$$ be a random variable representing the height of a person and $$g$$ being a discrete random variable representing the gender (assumed to be binary), what does the term $$p (y  \;\vert\; g = \text{male} )$$ refer to? What does $$p(g = \text{female})$$ refer to?
+
+## Further reading
+
+1. *Deisenroth, M. P., Faisal, A. A., & Ong, C. S.* (2020). "Mathematics for machine learning". Cambridge University Press - a whole book that compiles basic and advanced math concepts for machine learning
