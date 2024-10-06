@@ -80,6 +80,7 @@ a single value for the whole dataset:
 
 $$\text{MAE} = \frac{1}{n} \sum_{i=1}^{n} \vert\hat{y}_i - y_i\vert$$.
 
+ 
 **Pros:**
 - Easy to understand and interpret.
 - Less sensitive to outliers compared to MSE.
@@ -156,7 +157,7 @@ The most common metric that people use (and fail to use properly) is accuracy:
 
 $$\text{Accuracy} = \frac{\text{Number of correct predictions}}{\text{Total number of predictions}} = \frac{1}{n} \sum\limits_{i=1}^n [ \hat{y}_i = y_i ] = \frac{TP + TN}{TP + TN + FP + FN}$$
 
-What is the percentage of test examples with the correctly predicted label? In the formula above $$[ z ]$$ is 1 if $$z$$ is true and $0$ otherwise.
+What is the percentage of test examples with the correctly predicted label? In the formula above $$[ z ]$$ is 1 if $$z$$ is true and 0 otherwise.
 This naturally applies to scenarios with $$K>2$$ as well.
 
 **Pros:**
