@@ -9,10 +9,6 @@ classes: wide
 
 Ensemble methods are techniques that create multiple models and then combine them to produce improved results. The main idea is that a group of weak learners can come together to form a strong learner. 
 
-### Types of Ensembles
-1. **Homogeneous Ensembles**: Combining the same type of models.
-2. **Heterogeneous Ensembles**: Combining different types of models.
-
 ## Benefits of Heterogeneous Ensembles
 
 The motivation behind using heterogeneous ensembles is that different models may capture different patterns in the data, and combining them can lead to a better overall performance. In the following, we will mathematically justify this intuition.
@@ -28,7 +24,7 @@ f_2 - g &= \epsilon_2 \sim \mathcal{N}(0, \sigma^2)
 \end{align*}
 $$
 
-The squared error of the models is therefore characterized by the variance of $$\epsilon_1$$ and $$\epsilon_2$
+The squared error of the models is therefore characterized by the variance of $$\epsilon_1$$ and $$\epsilon_2$$
 respectively (please remember the definition of the variance here).
 
 Very importantly, we are not assuming $$f_1$$ and $$f_2$$ to be independent here!
@@ -98,6 +94,8 @@ y_pred = bagging.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Bagging Test Accuracy: {accuracy:.4f}")
 ```
+
+Bagging for decision trees is often termed random forest [(Breiman 2001)](https://link.springer.com/article/10.1023/A:1010933404324). There is a great tutorial on random forests at [mlu-explain](https://mlu-explain.github.io/random-forest/).
 
 ### Boosting
 Boosting is an ensemble method that sequentially trains multiple models, each trying to correct the mistakes of the previous one. In contrast to bagging, models are therefore not trained independently and their decision is also not simply averaged but weighted afterwards.

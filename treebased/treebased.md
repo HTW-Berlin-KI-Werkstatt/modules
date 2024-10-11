@@ -14,12 +14,26 @@ A single tree consists of:
 2. **Branches**: Each branch represents the outcome of the test, leading to either another decision node or a leave.
 3. **Leaves**: Leaf nodes of the tree represent the final output class (classification) or value (regression).
 
+## Inference using a decision tree
+
+![Decision Tree on IRIS dataset](img/decision_tree.png)
+> Example decision tree on the IRIS dataset, image from [wikipedia]
+(https://commons.wikimedia.org/wiki/File:Classification_tree_on_iris_dataset.png)
+
+Above image shows a decision tree applied to classification. Performing inference (i.e. predicting the result for an unseen example) is done by traversing the tree from top to bottom. At each internal decision node, the corresponding test is performed and the traversal contains either left or right.
+
+The leaf nodes contain a distribution of probable classes with which the example can be associated with.
+The class with highest probability can then be taken as the prediction result.
+
 ## ⭐Learning a tree for classification
 
+How do we find a proper tree when provided with data during learning? A
+decision tree is build from top to bottom.
 The learning starts with the root node and trying to find the test that best splits the data. For
-a binary classification task, the best split would one that splits the training data directly into the two classes.
-However, this is only a perfect scenario, which can not be directly achieved in non-trivial cases.
+a binary classification task, the best split would be one that splits the training data directly into the two classes. However, this is only a perfect scenario, which can not be directly achieved in non-trivial cases.
 We therefore have to measure the quality of a split using certain criteria.
+
+A nice visualization of this process can be found at [mlu-explain](https://mlu-explain.github.io/decision-tree/).
 
 Let $$p_\kappa$$ be the portion of examples belonging to class $$\kappa$$ in the current decision node $$T$$.
 The *entropy* measures how impure the set of examples is:

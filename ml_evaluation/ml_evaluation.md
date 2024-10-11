@@ -34,7 +34,7 @@ Therefore, two aspects need to be included for evaluation:
 
 Let's look at some evaluation and especially splitting techniques to deal with the aspects explained in the last paragraphs.
 
-### Cross-Validation
+### 3.1 Cross-Validation
 
 Cross-validation is a robust technique for assessing the performance of a machine learning model. The most common form is k-fold cross-validation:
 - **k-Fold Cross-Validation:** The dataset is split into $$k$$ equal parts. The model is trained on $$k-1$$ parts and tested on the remaining part. This process repeats $$k$$ times, with each part being used exactly once as the test set. The final performance metric is the average of the results from all `k` iterations.
@@ -51,7 +51,10 @@ print("Cross-validation scores:", scores)
 In this case the function ``cross_val_score`` takes care of the training and the evaluation.
 In the majority of cases, you might want to have more control over this process and loop yourself over the splits provided by ``kf``.
 
-### Train/Validation/Test Split
+Please also read the excellent tutorial at [https://mlu-explain.github.io/cross-validation/](mlu-explain) on
+cross-validation.
+
+### 3.2 Train/Validation/Test Split
 
 Another common strategy is to split the dataset into three distinct sets: 
 - **Training Set:** Used to train the model.
@@ -67,13 +70,16 @@ X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.4)
 X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=0.5)
 ```
 
+Please also read the excellent tutorial at [https://mlu-explain.github.io/train-test-validation/](mlu-explain) on
+splitting strategies.
+
 ## 4. Metrics for Regression
 
 So far we talked about evaluation strategies (just covered the tip of the iceberg here), but how do we actually compare
 our prediction $$y_i$$ (for each test example with index $$1 \leq i \leq n$$) with the ground-truth labels $$\hat{y}_i$$?
 This depends on many aspects, first of all let's focus on regression tasks where $$y$$ is a continuous value.
 
-### Mean Absolute Error (MAE)
+### 4.1 Mean Absolute Error (MAE)
 
 A very standard measure is the absolute difference between both values, which we can averaged to obtain
 a single value for the whole dataset:
@@ -85,7 +91,7 @@ $$\text{MAE} = \frac{1}{n} \sum_{i=1}^{n} \vert\hat{y}_i - y_i\vert$$.
 - Easy to understand and interpret.
 - Less sensitive to outliers compared to MSE.
 
-### Mean Squared Error (MSE)
+### 4.2 Mean Squared Error (MSE)
 
 Mathematicians since Gauss prefer the squared error:
 
@@ -102,7 +108,7 @@ root of the MSE, but has the same unit as the input value and therefore is easie
 **Cons:**
 - More sensitive to outliers as large errors are squared.
 
-### R-squared (R²)
+### 4.3 R-squared (R²)
 
 Let $$\bar{y}$$ be the mean of the ground-truth values (across the test set), then we can compute the so-called $$R$$ square metric:
 
@@ -151,6 +157,10 @@ The confusion matrix can be represented in a tabular format:
 
 and allows to derive many different metrics explained in the following.
 
+In the following, we will go through several performance metrics for classification.
+There is also a great tutorial at [mlu-explain](https://mlu-explain.github.io/precision-recall/)
+worth reading.
+
 #### Accuracy
 
 The most common metric that people use (and fail to use properly) is accuracy:
@@ -168,21 +178,39 @@ This naturally applies to scenarios with $$K>2$$ as well.
 - Misleading for imbalanced datasets as it may give high accuracy by simply predicting the majority class: Assume we have a test set that consists of 990 images without a pedestrian and
 10 images with a pedestrian. A model simply predicting "no predestrian" would get a 99% accuracy. Time to raise some venture capital 😄.
 
+#### Recall (alternative name: Sensitivity)
 
+![Recall and precision](img/precision_recall.svg)
+> Visual explanation of recall and precision (image from [wikipedia](https://commons.wikimedia.org/wiki/File:Precisionrecall.svg))
 
-#### Recall (Sensitivity)
-
+Another common measure only concentrates on positives examples:
 $$
 \text{Recall} = \frac{TP}{TP + FN}
 $$
 This is also known as the accuracy of the positive class only: how many positive examples have been recognized correctly?
 Please note that the denominator is simply the number of positive examples in the test set.
+This measure ignores that the number of false positives might be really high.
+
+Taking only the negative class into account, we get the performance metric of specificity. This is 
+easily confused with sensitivity.
+
+#### Precision
+
+Similar to recall, precision involves the number of true positives in the test set - all positive examples
+that have been correctly recognized. However, precision uses the number of all examples that were
+predicted as being positive for normalization:
+
+$$
+\text{Precision} = \frac{TP}{TP + FP}
+$$
+
+If the number of false positives is high, precision drops significantly.
+
+* Pro: Useful when the cost of false positives is high.
+* Con: Should be considered alongside recall for a comprehensive assessment.
+
 
 #### Further measures
-
-* Precision: $$\text{Precision} = \frac{TP}{TP + FP}$$
-  * Pro: Useful when the cost of false positives is high.
-  * Con: Should be considered alongside recall for a comprehensive assessment.
 * Specificity: $$\text{Specificity} = \frac{TN}{TN + FP}$$
 * F1 measure: $$F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$$
   * Pro: Balances precision and recall and useful for imbalanced datasets
@@ -227,6 +255,8 @@ is really high. True positive rate and false positive rate therefore depend on $
 
 In essence, we get a visualization of all possible trade-offs by plotting the True Positive Rate (TPR) against the False Positive Rate (FPR) at various threshold settings.
 It simply depends on the application, whether you want to have a model being careful about predicting something to be positive or not.
+
+A great animated explanation for ROC curves can be also found at [https://mlu-explain.github.io/roc-auc/](mlu-explain).
 
 ### How to Interpret the ROC Curve
 
