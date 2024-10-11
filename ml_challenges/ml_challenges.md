@@ -7,8 +7,6 @@ toc: false
 classes: wide
 ---
 
-# Main Challenges in Machine Learning
-
 In this module, we will discuss some of the key challenges when dealing with machine learning, including overfitting, data bias, distribution shift, and label noise.
 
 ## Data requirements for machine learning
@@ -83,8 +81,11 @@ is likely to buy the product, btw. this is all about estimating $$p(y \vert \mat
 However the likeliness of buying a certain product naturally changes over time depending on what I bought already and the season for example. 
 Just training one model and make predictions with it, therefore, does not work.
 
+![overfitting model](img/topex-visda-examples.png)
+> Two examples for a shift of the data distribution [(Ritter et al. 2023)](https://arxiv.org/abs/2310.04757)
+
 - **Types of Distribution Shift**:
-  - **Covariate Shift**: Change in the input features' distribution $$p(\mathbf{x})$$ (change of the camera image over time and season for object detection).
+  - **Covariate Shift**: Change in the input features' distribution $$p(\mathbf{x})$$ (change of the camera image over time and season for object detection). An example for a covariate shift is given in the image above for two different application scenarios.
   - **Label Shift**: Change in the output label distribution $$p(y \vert \mathbf{x})$$ changes. 
 - **Detection**: Statistical tests that compare the distributions of the data over time.
 - **Handling Techniques**:
