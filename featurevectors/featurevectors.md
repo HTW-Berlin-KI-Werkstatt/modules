@@ -99,7 +99,7 @@ common to be used. We will learn later on how these embeddings are learned, let'
 
 ### NLP Example: Using CLIP Model to Obtain Text Embeddings
 
-For this example, we'll use the CLIP model of Open AI to obtain text embeddings. The embedding model consists of several parameters, which
+For this example, we'll use the CLIP model of Open AI [(Radford et al., 2021)](https://arxiv.org/abs/2103.00020) to obtain text embeddings. The embedding model consists of several parameters, which
 we obtain from [huggingface.com](huggingface.com) - an amazing open portal consisting of models, datasets, and benchmarks.
 Their python module ``transformers`` works like a charm and takes care of the download and caching in the background:
 
@@ -131,7 +131,7 @@ print(f"Embedding vector shape: {embedding_vector.shape}")
 print(f"Embedding vector: {embedding_vector[:10]}...")  # Print first 10 elements for brevity
 ```
 
-The resulting embedding is a high-dimensional vector representing the semantic meaning of the text.
+The resulting embedding is a high-dimensional vector representing related to the semantic meaning of the text.
 
 ### CV Example: Using CLIP Model to Obtain Text Embeddings
 
