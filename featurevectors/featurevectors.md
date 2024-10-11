@@ -154,3 +154,8 @@ def get_image_embedding(image_path):
 
 This is even not the end of the story: in CLIP, text and image share the same embedding space. If an image $$I$$ is semantically close to a text $$T$$,
 their embeddings will have a close distance. This offers an enourmous potential for fast algorithm development, something that you might have even used beforehand.
+
+## Further reading
+
+1. Embedding for audio signals: Wav2Vec [(Baevski et al, 2020)](https://arxiv.org/abs/2006.11477)
+2. One of the first papers on word embeddings: Word2Vec [(Mikolov et al, 2013)](https://arxiv.org/pdf/1301.3781) 
