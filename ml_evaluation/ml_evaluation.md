@@ -256,7 +256,7 @@ is really high. True positive rate and false positive rate therefore depend on $
 In essence, we get a visualization of all possible trade-offs by plotting the True Positive Rate (TPR) against the False Positive Rate (FPR) at various threshold settings.
 It simply depends on the application, whether you want to have a model being careful about predicting something to be positive or not.
 
-A great animated explanation for ROC curves can be also found at [https://mlu-explain.github.io/roc-auc/](mlu-explain).
+A great animated explanation for ROC curves can be also found at [mlu-explain](https://mlu-explain.github.io/roc-auc/).
 
 ### How to Interpret the ROC Curve
 
