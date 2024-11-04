@@ -38,7 +38,7 @@ A nice visualization of this process can be found at [mlu-explain](https://mlu-e
 Let $$p_\kappa$$ be the portion of examples belonging to class $$\kappa$$ in the current decision node $$T$$.
 The *entropy* measures how impure the set of examples is:
 
-$$H(v) = - \sum_{i=\kappa}^{C} p_\kappa \log(p_\kappa)$$
+$$H(v) = - \sum_{\kappa=0}^{C} p_\kappa \log(p_\kappa)$$
 
 and has a maximal value for a uniform distribution, i.e. we have an equal number of examples from each class.
 We now can compute the so called *information gain*, which is the reduction in entropy after a dataset is split:
