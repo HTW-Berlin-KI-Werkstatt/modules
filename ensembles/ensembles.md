@@ -99,7 +99,7 @@ Bagging for decision trees is often termed random forest [(Breiman 2001)](https:
 
 ### Boosting
 Boosting is an ensemble method that sequentially trains multiple models, each trying to correct the mistakes of the previous one. In contrast to bagging, models are therefore not trained independently and their decision is also not simply averaged but weighted afterwards. One specific boosting algorithm, known as AdaBoost, had a huge 
-impact on computer vision, since it was one of the first approaches to heavily rely on machine learning: the ]Viola-Jones detector for face detection [(Viola and Jones, 2004)](https://link.springer.com/content/pdf/10.1023/b:visi.0000013087.49260.fb.pdf).
+impact on computer vision, since it was one of the first approaches to heavily rely on machine learning: the Viola-Jones detector for face detection [(Viola and Jones, 2004)](https://link.springer.com/content/pdf/10.1023/b:visi.0000013087.49260.fb.pdf).
 
 The main algorithm works as follows:
 1. **Initialize model**: Start with a simple model (often referred to as weak learner) trained on the dataset.
