@@ -86,7 +86,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 base_estimator = DecisionTreeClassifier()
 
 # Bagging
-bagging = BaggingClassifier(base_estimator=base_estimator, n_estimators=10, random_state=42)
+bagging = BaggingClassifier(estimator=base_estimator, n_estimators=10, random_state=42)
 bagging.fit(X_train, y_train)
 y_pred = bagging.predict(X_test)
 
