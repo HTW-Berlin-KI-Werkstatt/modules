@@ -46,6 +46,6 @@ gives a great overview of backpropagation without going into calculus too much:
 
 ## Backpropagation = computing derivatives efficiently
 
-Just watch the following video :P
+Just watch the following video :-P
 
 <iframe width="420" height="315" src="https://www.youtube.com/embed/tIeHLnjs5U8" frameborder="0"> </iframe>
