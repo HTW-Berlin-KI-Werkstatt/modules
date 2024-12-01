@@ -106,7 +106,7 @@ Various architectures have been developed to optimize CNN performance for specif
 
 4. **GoogLeNet (Inception)**: This architecture uses "Inception modules" which allow the network to consider different filter sizes within a single layer, improving both feature extraction and computational efficiency.
 
-5. **ResNet (Residual Networks)**: Introduces skip connections, or residual blocks, which solve the vanishing gradient problem, allowing training of very deep networks (e.g., hundreds of layers).
+5. **ResNet (Residual Networks)**: Introduces skip connections, or residual blocks, which tackles the vanishing gradient problem, allowing training of very deep networks (e.g., hundreds of layers).
 
 ## Classification Using CNNs
 
