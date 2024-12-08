@@ -1,5 +1,5 @@
 ---
-title: "Object detection - architectures and losses"
+title: "Object detection - architecture and losses"
 layout: single
 author_profile: true
 author: Erik Rodner
@@ -17,12 +17,14 @@ Key features are:
 - **Unified Architecture**: YOLO processes the *entire image with a single convolutional network*, predicting bounding boxes and class probabilities simultaneously.
 - **Speed**: Due to its real-time processing capability, YOLO can achieve high frame rates, making it highly suitable for applications requiring rapid responses, such as autonomous driving.
 - **Global Context**: By considering global image context during detection, YOLO reduces false positives, particularly where similar objects are close together.
-- **Grid Division**: The image is divided into an $$ S \times S $$ grid, with each cell responsible for predicting bounding boxes if the center of an object falls within the cell.
+- **Grid Division**: The image is divided into an $$ S \times S $$ grid, with each cell responsible for predicting bounding boxes if the center of an object falls within the cell. Each grid can predict $$ B $$ bounding boxes in parallel.
 
 For each bounding box, the model predicts:
   - Coordinates (x, y, width, height)
   - Confidence score indicating probability that a box contains an object and effectiveness of the box
   - Class probabilities for each object class
+
+What is the maximum number of objects, a YOLO model can detect?
 
 ### Training and related loss functions
 
@@ -31,8 +33,7 @@ Each goal is formulated as an individual loss function and during training a wei
 is minimized.
 
 1. **Localization Loss**:
-   - Measures errors in predicted bounding box coordinates.
-   - Uses Mean Squared Error (MSE) for precise localization of bounding boxes, focusing on deviations in center coordinates and dimensions.
+   - Measures errors in predicted bounding box coordinates and sizes (square root transform).
 
 2. **Confidence Loss**:
    - Quantifies how accurately the presence of an object in a bounding box is predicted.
@@ -42,14 +43,9 @@ is minimized.
 
 3. **Classification Loss**:
    - Evaluates the accuracy of predicted class probabilities within each bounding box.
-   - Implemented using a traditional softmax cross-entropy loss, ensuring the correct classification of detected objects.
 
 
-YOLO combines these components into a weighted sum to form the total loss function:
-
-$$
-   \text{Loss} = \lambda_{\text{coord}} (\text{Localization Loss}) + \text{Confidence Loss} + \lambda_{\text{class}} (\text{Classification Loss})
-$$
+YOLO combines these components into a weighted sum to form the total loss function.
 
 Hyperparameters like $$\lambda_{\text{coord}}$$ and $$\lambda_{\text{class}}$$ are used to balance different parts of the detection task according to importance.
 
@@ -69,8 +65,8 @@ While YOLO is prominent due to its speed, other object detection models provide 
    - **Architecture**: Utilizes feature maps of different resolutions to handle varying object sizes, enhancing detection robustness.
    - **Strengths**: Balances trade-offs between speed and accuracy, often outperforming YOLO on certain tasks.
 
-
 ## Further ressources
 
 1. Further details explained: [](https://www.datacamp.com/blog/yolo-object-detection-explained)
 2. Ultralytics object detection: [](https://docs.ultralytics.com/de/tasks/detect/)
+3. Yet another blog article on YOLO v1: [](https://towardsdatascience.com/evolution-of-yolo-yolo-version-1-afb8af302bd2)
