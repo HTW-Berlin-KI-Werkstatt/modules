@@ -96,6 +96,9 @@ This process retains salient features while reducing spatial dimensions.
 
 After several convolutional and pooling operations, CNNs transition to fully connected layers, similar to traditional neural networks. The purpose of these layers is to integrate the high-level features detected by convolutions across the image into a decision-making process for classification tasks.
 
+![](img/alexnet.svg)
+> Architecture of AlexNet (done with [NN-SVG](https://alexlenail.me/NN-SVG/AlexNet.html))
+
 Various architectures have been developed to optimize CNN performance for specific tasks:
 
 1. **LeNet-5**: One of the earliest CNN architectures, designed for handwritten digit recognition. It consists of two sets of convolutional and pooling layers, followed by fully connected layers.
