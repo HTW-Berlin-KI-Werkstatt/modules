@@ -14,7 +14,7 @@ classes: wide
 
 Der Künstler Urs Wehrli ist dafür bekannt, dass er sehr gern aufräumt. Nichts ist vor ihm sicher, nicht mal Kandisky. Die *Sendung mit der Maus* erklärt das sehr schön - [schauen Sie sich es gern im Video an](https://www.youtube.com/watch?v=GPeNVYKaYZE):
 
-<a href="https://www.youtube.com/watch?v=GPeNVYKaYZE"><img src="/modules/clustering/img/Wehrli.png"></a>
+<a href="https://www.youtube.com/watch?v=GPeNVYKaYZE"><img src="./img/Wehrli.png"></a>
 
 
 Dieses "Aufräumen", das Herr Wehrli da so gerne betreibt, ist letzten Endes eine besondere Form der Datenanalyse. Hier werden Entitäten in **Cluster** gruppiert, basierend auf ihren **Merkmalen**. 
@@ -50,7 +50,7 @@ Lassen Sie uns einige der wichtigsten Algorithmen bzw. Kategorien von Algorithme
 
 Beide Verfahren unterscheiden sich ganz wesentlich durch ihren Output (siehe Abbildung oben): hierarchisches Clustering erstellt einen Baum von Ähnlichkeiten zwischen den Punkten, anhand dessen die Struktur des gesamten Datensatzes interpretiert werden kann. Dafür liefert die Methode jedoch keine direkte Zuweisung zu Clustern. Diese muss manuell durch geeignetes "Abschneiden" der Teilbäume erfolgen. Zentroid-basierte Methoden hingegen erstellen lediglich eine Zuordnung zu Clustern, nachdem der Parameter $k$ vom Data Scientist vorgegeben wurde.
 
-![Infografik zum hierarchischen Clustering](/assets/images/ds-lecture/clustering-hier-vs-zentr.png)
+![Infografik zum hierarchischen Clustering](/modules/clustering/img/hier_vs_zentr.png)
 
 
 ### Hierarchisches Clustering
