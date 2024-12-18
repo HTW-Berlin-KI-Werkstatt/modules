@@ -84,7 +84,7 @@ K-Means-Clustering ist mit Abstand die beliebteste Version des Zentroid-Clusteri
 {: .notice--warning}
 
 
-![Infografik zum hierarchischen Clustering](/assets/images/ds-lecture/clustering-kmeans.png)
+![Infografik zum hierarchischen Clustering](./img/clustering-kmeans.png)
 
 ## Weitere Clustering-Algorithmen
 
