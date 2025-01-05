@@ -106,7 +106,7 @@ This allows the attention layer to capture information across different represen
 
 ## Further resources
 
-We skipped a lot of further other aspects important to fully re-implement attention heads, but our time here in the lecture is limited.
+We skipped a lot of further other aspects (masking, cross-attention instead of self-attention, residual/skip connections, layer normalization, etc.) important to fully re-implement attention heads, but our time here in the lecture is limited.
 
 1. A great description of the transformer layer with code: [UVA-DLC](https://uvadlc-notebooks.readthedocs.io/en/latest/tutorial_notebooks/tutorial6/Transformers_and_MHAttention.html)
 2. The illustrated transformer, indeed a very good intro: [Illustrated transformer](https://jalammar.github.io/illustrated-transformer/)
