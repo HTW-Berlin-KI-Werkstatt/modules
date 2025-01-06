@@ -51,7 +51,7 @@ $$ \text{Attention}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \text{softmax}\left(\f
 - $$ \mathbf{Q} \cdot \mathbf{K}^T = \mathbf{A}$$ computes the raw attention scores, which is a $$\mathbb{R}^{B \times B}$$ matrix, i.e. an importance score of each element (token) for each other element:
 
 $$
-a_{ij} = (\mathbf{Q} \cdot \mathbf{K}^T)_{ij} = \mathbf{q}_i \cdot \mathbf{k}_j
+a_{ij} = (\mathbf{Q} \cdot \mathbf{K}^T)_{ij} = \mathbf{q}_i^T \mathbf{k}_j
 $$
 
 with $$\mathbf{q}_i$$ and $$\mathbf{k}_j$$ being the i'th and j'th column vector the respective matrices. The "similarity" (measured as a dot product) of the query vector of the i'th element in the sequence and the key vector of the k'th element of the sequence determines the "importance" of the k'th element for the i'th element.
