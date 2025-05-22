@@ -12,9 +12,11 @@ classes: wide
 
 ## Clustering im echten Leben
 
-Der Künstler Urs Wehrli ist dafür bekannt, dass er sehr gern aufräumt. Nichts ist vor ihm sicher, nicht mal Kandisky. Die *Sendung mit der Maus* erklärt das sehr schön - [schauen Sie sich es gern im Video an](https://www.youtube.com/watch?v=GPeNVYKaYZE):
 
-<a href="https://www.youtube.com/watch?v=GPeNVYKaYZE"><img src="./img/Wehrli.png"></a>
+![](./img/Wehrli.png)
+
+Der Künstler Urs Wehrli ist dafür bekannt, dass er sehr gern aufräumt. Nichts ist vor ihm sicher, nicht mal Kandisky. Die *Sendung mit der Maus* erklärt das sehr schön - [schauen Sie sich es gern im Video an](https://www.youtube.com/watch?v=GPeNVYKaYZE)!
+
 
 
 Dieses "Aufräumen", das Herr Wehrli da so gerne betreibt, ist letzten Endes eine besondere Form der Datenanalyse. Hier werden Entitäten in **Cluster** gruppiert, basierend auf ihren **Merkmalen**. 
