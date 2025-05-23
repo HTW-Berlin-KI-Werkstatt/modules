@@ -85,7 +85,7 @@ Im Code werden Sie sehen, dass der Original-Datensatz zuerst in die Merkmale $X$
 In der Theorie des Maschinellen Lernens gibt auch komplexere Vorgehensweisen, um die Qualität eines Modells möglichst zuverlässig bewerten zu können, die grunsätzliche Art der Verwendung von Modellen (Initialisierung, Training, Vorhersage) ist für aber bei fast allen Algorithmen und Modelle sehr ähnlich und lässt sich auch über Programmiersprachen hinweg immer wieder finden.
 
 Das sind ML-Basics, die auch jeder Data Scientist wissen sollte. Werfen Sie nochmal einen Blick auf den Code. Wo passiert Initalisierung von Daten und Modell, wo passiert das Bauen des Modells (Train), wo die Anwendung (Predict)? 
-
+{: .notice--task} 
 
 Achten Sie insbesondere darauf, wie der `scaler` hier verwendet wird. Warum bekommen `train` und `test` wohl nicht jeweils ihren eigenen `StandardScaler`?
 {: .notice--task}

@@ -19,6 +19,8 @@ NoSQL ist ein Überbegriff, um nicht-relationale Daten als Sonderfall von nicht-
 ### Key-value Datenbanken
 
 ![Graphical representation of a key-value data store showing 4 unique numerical keys that are associated with 4 various values](images/kv-db.png)
+
+
 Source from [Michał Białecki Blog](https://www.michalbialecki.com/2018/03/18/azure-cosmos-db-key-value-database-cloud/)
 
 **Key-value databases** koppeln eindeutige Schlüssel mit einem zugeordneten Wert. Werte können Skalardatentypen wie Ganzzahlen oder komplexe Strukturen wie JSON, Listen oder BLOBs sein. Die Paare werden mithilfe einer [Hash Tabelle](https://www.hackerearth.com/practice/data-structures/hash-tables/basics-of-hash-tables/tutorial/) und einer entsprechenden Hashing-Funktion gespeichert. Die in diesen Datenbanken dargestellten Daten ähneln dem bekannten Datentyp Dictionary. Im Gegensatz zu relationalen Datenbanken können *Werte* in Key-Value-Datenbanken deshalb üblicherweise nicht (effizient) abgefragt oder durchsucht werden. Nur der Schlüssel kann abgefragt werden.
