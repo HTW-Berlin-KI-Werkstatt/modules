@@ -86,7 +86,7 @@ print(f"Predicted value for new data: {predicted_value[0]:.2f}")
 
 **Aufgabe:** Schauen Sie sich das [vollständige Beispiel zur Anwendung linearer Regression](
 https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html#sphx-glr-auto-examples-linear-model-plot-ols-py) in der Dokumentation von Scikit Learn an.
-{: .notice--warning} 
+{: .notice--task} 
 
 Diese Vorhersage-Funktion ist unglaublich mächtig! Lineare Regressionsmodelle haben zahlreiche praktische Anwendungen. Das Prinzip ist immer das gleiche: aus einem bekannten historischen Datensatz (z.B. zu Maschinendaten, Preisdaten, Wetterdatten) wird ein Modell gelernt. Im Anschluss wird das Modell im Alltag verwendet, um für neue Szenarien das wahrscheinlichste Ergebnis vorherzusagen.
 
@@ -94,13 +94,13 @@ Diese Vorhersage-Funktion ist unglaublich mächtig! Lineare Regressionsmodelle h
 
 Lineare Regression mit Ordinary Least Squares ist nur die allereinfachste Form der Regression. Es gibt unzählige Ausbaustufen. Tatsächlich kann man sogar ein komplexes Neuronales Netz als Sonderform der Regression interpretieren.
 
-**Aufgabe:** Machen Sie sich in der [Dokumentation von Scikit Learn](https://scikit-learn.org/stable/modules/linear_model.html#ordinary-least-squares) mit Ausbaustufen der Linearen Regression vertraut, insebsondere mit Ridge und Lasso Regression. Wir werden in der Vorlesung noch einmal über den Sinn und Zweck dieser Varianten sprechen.
-{: .notice--warning} 
+**Aufgabe:** Machen Sie sich in der [Dokumentation von Scikit Learn](https://scikit-learn.org/stable/modules/linear_model.html#ordinary-least-squares) mit Ausbaustufen der Linearen Regression vertraut, insebsondere mit Ridge und Lasso Regression. 
+{: .notice--task} 
 
 Neben technischen Erweiterungen der Regression gibt es auch "fachlich-mathematische". Statt linearen Zusammenhängen kann man das Regressionsmodell auch leicht anpassen, um polynomielle Zusammenhänge zu modellieren.
 
 **Aufgabe:** Machen Sie sich in der [Dokumentation von Scikit Learn](https://scikit-learn.org/stable/modules/linear_model.html#polynomial-regression-extending-linear-models-with-basis-functions) damit vertraut, wie man das Basismodell der linearen Regresssion um eine polynomielle Abhängifkeit erweitern kann.
-{: .notice--warning} 
+{: .notice--task} 
 
 ## Logistische Regression
 
@@ -140,4 +140,4 @@ print(f"Vorhergesagte Klasse für neue Daten: {predicted_class[0]}")
 ```
 
 **Aufgabe:** Werfen Sie in der  [Dokumentation von Scikit Learn](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression) auf die Grundzügen der logistischen Regression.
-{: .notice--warning} 
+{: .notice--task} 
