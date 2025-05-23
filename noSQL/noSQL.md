@@ -101,6 +101,42 @@ Ein etwas umfangreicheres Beispiel können Sie [optional hier finden](https://ww
 
 Dokumentenorientierte-Datenbanken haben hochinteressante Eigenschaften im Bezug auf Skalierung auf verteilten Systemen, Datenaggregation sowie Zuverlässigkeit und Geschwindigkeit der Datenverwaltung, die sich deutlich von klassischen Relationalen Datenbanksystemen unterscheidet. Für weiterführende Informationen dazu und konkret zum Umgang mit MongoDB sei hier die [Dokumentation des Herstellers](https://www.mongodb.com/docs/) empfohlen.
 
+
+**Anmerkung:** Key-value und Dokumenten-Datenbanken wirken auf den ersten Blick sehr ähnlich. Beide arbeiten scheinbar mit *dictionaries* als flexiblen Datenstrukturen. Während aber bei ersteren der Zugriff auf Daten nur über den *key* möglich ist, erlauben letztere den Zugriff auf die strukturierten Daten selbst:
+{: .notice--note} 
+
+```
+# gespeicherte Daten, key-value:
+Key: "user123"
+Value: "{'name': 'Anna', 'age': 30}"
+# gespeicherte Daten, Doc-DB:
+{
+  "_id": "user123",
+  "name": "Anna",
+  "age": 30
+}
+```
+
+```
+# Zugriff in Key-Value-DB:
+GET "user123"
+Returns: "{'name': 'Anna', 'age': 30}"
+```
+
+```
+# Zugriff in Dokumenten-DB:
+
+db.users.find({ "age": { "$gt": 25 } })
+Returns: [
+  {
+    "_id": "user123",
+    "name": "Anna",
+    "age": 30
+  }
+]
+```
+
+
 ### Graph-Datenbanken
 
 ![Graphical representation of a graph data store showing the relationships between people, their interests and locations](images/graph-db.png)
@@ -162,7 +198,7 @@ NoSQL-Datenbanken sind eine vielseitige Gruppe von Datenbanken, die sich vom tra
 * Spaltenorientierte Datenbanken
   * Diese speichern Daten in Spalten anstelle von Zeilen.
   * Sie sind effizient für Analysen und Aggregationen, da sie nur die benötigten Spalten laden.
-  * Ein Beispiel ist Cassandra1.
+  * Ein Beispiel ist Cassandra
 * Wide-Column-Stores
   * Ähnlich wie spaltenorientierte Datenbanken, aber mit flexibleren Schemas.
   * HBase ist ein bekanntes Beispiel.
