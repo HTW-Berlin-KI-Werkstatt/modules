@@ -16,7 +16,7 @@ Maschinelles Lernen (ML) ist ein Teilgebiet der Künstlichen Intelligenz, welche
 
 ## Überwachtes Lernen
 
-<img src="img/sup-vs-unsup.png">
+![](./img/sup-vs-unsup.png)
 
 Grundsätzlich werden im Maschinellen Lernen zwei wesentliche Arten von Algorithmen unterschieden: beim **Überwachten Lernen** werden bereits in den Lerndaten korrekte Ausgabewerte (sogenannte Label oder Zielvariablen) bereitgestellt.
 
@@ -25,11 +25,20 @@ Innerhalb des Überwachten Lernens unterscheidet man zwei Arten von Algorithmen:
 * Bei der **Regression** ist die Zielvariable numerisch. Regressionsalgorithmen sagen also zum Beispiel Umsatzzahlen vorher, berechnen einen Kredit-Score, oder die Wahrscheinlichkeit für den Ausfall eines Motors.
 
 Die Daten bestehen dabei üblicherweise aus Eingabevektoren mit zugehörigem Ausgabewert (Zielvariable). Die folgende Abbildung fasst typische Bezeichnungen eines Klassifikationsdatensatzes zusammen:
-![](/assets/images/ds-lecture/vocabulary-classification.png)
+![](./img/vocabulary-classification.png)
 
-![](/assets/images/ds-lecture/MNIST.png)
 
-Das folgende Beispiel zeigt, wie man den Perzeptron-Algorithmus verwendet, um handgeschriebene Ziffern zu klassifizieren. Der Datensatz enthält Bilder von Ziffern (0 bis 9), die jeweils als Vektor von Pixelwerten repräsentiert werden. Diese Bilder stammen aus dem sehr berühment [MNIST-Datensatz](https://en.wikipedia.org/wiki/MNIST_database), der in der Programm-Bibliothek selbst verfügbar ist. Der Perzeptron-Klassifikator lernt, diese Bilder zu erkennen und kann anschließen vorherzusagen, welche Ziffer sie darstellen.
+--- 
+
+
+
+
+Das folgende Beispiel zeigt, wie man den *Perzeptron*-Algorithmus verwendet, um handgeschriebene Ziffern zu klassifizieren. Der Datensatz enthält Bilder von Ziffern (0 bis 9), die jeweils als Vektor von Pixelwerten repräsentiert werden. Diese Bilder stammen aus dem sehr berühment [MNIST-Datensatz](https://en.wikipedia.org/wiki/MNIST_database), der in der Programm-Bibliothek selbst verfügbar ist. Der Perzeptron-Klassifikator lernt, diese Bilder zu erkennen und kann anschließen vorherzusagen, welche Ziffer sie darstellen.
+
+![](./img/MNIST.png)
+
+Es ist zum aktuellen Zeitpunkt nicht notwendig, zu verstehen, wie ein Perzeptron funktioniert. Optional ist der [Artikel in der deutschsprachigen Wikipedia zum Thema](https://de.wikipedia.org/wiki/Perzeptron) ganz gelungen. Als Minimum sollten Sie wissen, dass ein Perzeptron in der Lage ist, einen mathematischen Zusammenhang zwischen einer Zielvariable und Merkmalen zu erkennen. Diesen Zusammenhang kann das Perzeptron in einem Modell "merken" und anschließend für neue Stichproben anhand deren Merkmale anwenden, um eine Zielvariable vorherzusagen.
+{: .notice--info} 
 
 ```python
 import os
@@ -69,12 +78,17 @@ print(f"Genauigkeit des Perzeptron-Klassifikators: {accuracy:.2f}")
 
 ### Train, Test, Predict
 
-<img src="img/ablauf.png">
+![](./img/ablauf.png)
 
-Im Code werden Sie sehen, dass der Original-Datensatz zuerst in die Merkmale $X$ und Zielvariable $y$ aufgeteilt wurden. Anschließend wurde erneut aufgeteilt in Trainings- und Testdaten. Dies ist ein typischese Vorgehen im Maschinellen Lernen: die Trainingsdaten werden verwendet, um mit dem Modell einen statistischen Zusammenhang zwischen Input und Output zu lernen. Das eigentliche **Modell**, hier ein Perzeptron, also en sehr einfaches neuronales Netz, wird in der Variable `clf` angelegt und mit der Funktion `fit` trainiert. Anschließend wird das Modell mit der Funktion `predict` auf neue Daten (die Testdaten) angewendet.  In den Testdaten wird der Output zurückgehalten (vor dem Modell verborgen), um die Korrektheit des Modells zu überprüfen. 
+Im Code werden Sie sehen, dass der Original-Datensatz zuerst in die Merkmale $X$ und Zielvariable $y$ aufgeteilt wurden. Anschließend wurde erneut aufgeteilt in Trainings- und Testdaten. Dies ist ein typischese Vorgehen im Maschinellen Lernen: die Trainingsdaten werden verwendet, um mit dem Modell einen statistischen Zusammenhang zwischen Input und Output zu lernen. Das eigentliche **Modell**, hier ein Perzeptron, also ein sehr einfaches neuronales Netz, wird in der Variable `clf` angelegt und mit der Funktion `fit` trainiert. Anschließend wird das Modell mit der Funktion `predict` auf neue Daten (die Testdaten) angewendet.  In den Testdaten wird der Output zurückgehalten (vor dem Modell verborgen), um die Korrektheit des Modells zu überprüfen. 
 
 In der Theorie des Maschinellen Lernens gibt auch komplexere Vorgehensweisen, um die Qualität eines Modells möglichst zuverlässig bewerten zu können, die grunsätzliche Art der Verwendung von Modellen (Initialisierung, Training, Vorhersage) ist für aber bei fast allen Algorithmen und Modelle sehr ähnlich und lässt sich auch über Programmiersprachen hinweg immer wieder finden.
 
+Das sind ML-Basics, die auch jeder Data Scientist wissen sollte. Werfen Sie nochmal einen Blick auf den Code. Wo passiert Initalisierung von Daten und Modell, wo passiert das Bauen des Modells (Train), wo die Anwendung (Predict)? 
+{: .notice--task} 
+
+Achten Sie insbesondere darauf, wie der `scaler` hier verwendet wird. Warum bekommen `train` und `test` wohl nicht jeweils ihren eigenen `StandardScaler`?
+{: .notice--task}
 
 ## Unüberwachtes Lernen
 
@@ -85,7 +99,7 @@ Im Gegensatz zum Überwachten Lernen wird beim **Unüberwachten Lernen** Algorit
 * **Association Analysis**: Gemeinsames Auftreten von Mustern, z.B. für Warenkorbanalyse.
 
 
-Der folgende Code arbeitet ebenfalls mit dem MNIST-Datensatz. Dort hat jedes Bild eine Größe von 28 x 28 Pixeln. Anstatt aber direkt auf den 784 Pixeln (=Merkmalen) zu arbeiten, wird die Dimensionalität der Datenmatrix mit Hilfe einer *Prinipal Component Analysis* auf 2 Merkmale reduziert. Wesentliche Ähnlichkeiten zwischen den Bildern bleiben dabei jedoch erhalten! Im dimension-reduzierten Datensatz wird nun mit Hilfe des *k-Means* Algorithmus nach zehn Clustern gesucht.
+Der folgende Code arbeitet ebenfalls mit dem MNIST-Datensatz. Dort hat jedes Bild eine Größe von 28 x 28 Pixeln. Anstatt aber direkt auf den 784 Pixeln (= Merkmalen) zu arbeiten, wird die Dimensionalität der Datenmatrix mit Hilfe einer *Prinipal Component Analysis* auf 2 Merkmale reduziert. Wesentliche Ähnlichkeiten zwischen den Bildern bleiben dabei jedoch erhalten! Im dimension-reduzierten Datensatz wird nun mit Hilfe des *k-Means* Algorithmus nach zehn Clustern gesucht.
 
 ```python
 # Importieren der benötigten Bibliotheken
@@ -130,7 +144,7 @@ Die zwei Dimensionen der PCA kann man bequemerweise leicht plotten (genau deshal
 
 ## Weitere Formen
 
-![](/assets/images/ds-lecture/ml-tree.png)
+![](./img/ml-tree.png)
 
 In Ergänzung zu diesen beiden Arten gibt es weitere Kategoriern von Algorithmen: so basiert zum Beispiel das bestärkende Lernen (Reinforcement Learning) auf kontinuierlichem Feedback, ohne vorgegebene Ausgabewerte. Auch gibt es hybride Formen zwischen den Kategorien. Abschließend werden auch viele Methoden zur Visualisierung, Manipulation und Qualitätssicherung von Daten zum Feld des Maschinellen Lernens gezählts, wodurch sich Feld mit der Definition von *Data Science* überlappt - eine scharfe Abgrenzung zwischen beiden Feldern ist nicht möglich.
 

@@ -3,7 +3,10 @@ title: "Dimensionality Reduction"
 layout: single
 author_profile: true
 author: Christina Kratsch
-toc: false
+lecture_name: "Data Science"
+lecture_desc: "Grundlegende Methoden für die Exploration und das Management von Daten."
+licence: "CC-BY"
+licence_desc: 2025 | HTW Berlin 
 classes: wide
 ---
 
@@ -24,13 +27,9 @@ One of the most widely used methods for dimensionality reduction is **Principal 
 
 Principal Component Analysis (PCA) is a linear transformation technique used for dimensionality reduction. It transforms a dataset with potentially correlated features into a new coordinate system where the axes (called principal components) are orthogonal and ordered by the amount of variance they capture from the data.
 
-Certainly! Here's an extended and more rigorous mathematical explanation of **Principal Component Analysis (PCA)**, suitable for an academic context.
-
----
-
 ## Mathematical Foundations
 
-Let $ X \in \mathbb{R}^{n \times p} $ be a data matrix with $ n $ observations and $ p $ features. The goal of PCA is to find a set of orthogonal vectors (principal components) that capture the directions of **maximum variance** in the data.
+Let $X \in \mathbb{R}^{n \times p}$ be a data matrix with $n$ observations and $p$ features. The goal of PCA is to find a set of orthogonal vectors (principal components) that capture the directions of **maximum variance** in the data.
 
 ---
 
@@ -42,10 +41,10 @@ To ensure that PCA captures variance around the mean, we first center the data.
 
 Let:
 
-- $ X \in \mathbb{R}^{n \times p} $ be the data matrix with $ n $ observations (rows) and $ p $ features (columns),
-- $ \mu \in \mathbb{R}^{1 \times p} $ be the **mean vector** of the columns (i.e., the mean of each feature).
+- $X \in \mathbb{R}^{n \times p}$ be the data matrix with $n$ observations (rows) and $p$ features (columns),
+- $\mu \in \mathbb{R}^{1 \times p}$ be the **mean vector** of the columns (i.e., the mean of each feature).
 
-Then, to center the data, we subtract the mean vector from each row of $ X $:
+Then, to center the data, we subtract the mean vector from each row of $X$:
 
 $$
 \tilde{X} = X - \mathbf{1}_n \mu
@@ -53,17 +52,17 @@ $$
 
 Where:
 
-- $ \mathbf{1}_n \in \mathbb{R}^{n \times 1} $ is a column vector of ones,
-- $ \mathbf{1}_n \mu \in \mathbb{R}^{n \times p} $ replicates the mean vector across all rows.
+- $\mathbf{1}_n \in \mathbb{R}^{n \times 1}$ is a column vector of ones,
+- $\mathbf{1}_n \mu \in \mathbb{R}^{n \times p}$ replicates the mean vector across all rows.
 
-This ensures that the subtraction is **broadcasted row-wise**, resulting in a centered matrix $ \tilde{X} \in \mathbb{R}^{n \times p} $ where each column has zero mean.
+This ensures that the subtraction is **broadcasted row-wise**, resulting in a centered matrix $\tilde{X} \in \mathbb{R}^{n \times p}$ where each column has zero mean.
 
 
 ---
 
 ### 2. Covariance Matrix
 
-The covariance matrix $ \Sigma \in \mathbb{R}^{p \times p} $ summarizes the pairwise covariances between features:
+The covariance matrix $\Sigma \in \mathbb{R}^{p \times p}$ summarizes the pairwise covariances between features:
 
 $$
 \Sigma = \frac{1}{n-1} \tilde{X}^\top \tilde{X}
@@ -81,18 +80,18 @@ $$
 \Sigma v_i = \lambda_i v_i
 $$
 
-- $ v_i \in \mathbb{R}^p $ are the **eigenvectors** (principal directions),
-- $ \lambda_i \in \mathbb{R} $ are the **eigenvalues** (explained variances),
+- $v_i \in \mathbb{R}^p$ are the **eigenvectors** (principal directions),
+- $\lambda_i \in \mathbb{R}$ are the **eigenvalues** (explained variances),
 
-The eigenvectors are **orthonormal**: $ v_i^\top v_j = \delta_{ij} $
+The eigenvectors are **orthonormal**: $v_i^\top v_j = \delta_{ij}$
 
-The eigenvalues are sorted in descending order: $ \lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_p .$
+The eigenvalues are sorted in descending order: $\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_p .$
 
 ---
 
 ### 4. Dimensionality Reduction
 
-To reduce the dimensionality from $ p $ to $ k $ (with $ k < p $), we select the top $ k $ eigenvectors and form the projection matrix:
+To reduce the dimensionality from $p$ to $k$ (with $k < p$), we select the top $k$ eigenvectors and form the projection matrix:
 
 $$
 W_k = [v_1, v_2, \dots, v_k] \in \mathbb{R}^{p \times k}
@@ -108,7 +107,7 @@ $$
 
 ### 5. Explained Variance
 
-The proportion of variance explained by the $ i $-th principal component is:
+The proportion of variance explained by the $i$-th principal component is:
 
 $$
 \text{Explained Variance Ratio}_i = \frac{\lambda_i}{\sum_{j=1}^{p} \lambda_j}
@@ -124,28 +123,6 @@ This metric is crucial for determining how many components to retain.
 
 ---
 
-### 6. **Singular Value Decomposition (Alternative View)**
-
-PCA can also be derived via **Singular Value Decomposition (SVD)**:
-
-$$
-\tilde{X} = U \Sigma V^\top
-$$
-
-- Columns of $ V $ are the principal components,
-- Diagonal entries of $ \Sigma $ relate to the square roots of the eigenvalues.
-
-This formulation is numerically more stable and often used in practice.
-
----
-
-Would you like me to extend this with a derivation of PCA from an optimization perspective (i.e., maximizing variance or minimizing reconstruction error)? 
-
-## PCA in Python
-
-Here’s a complete demonstration of how **PCA works in Python**, both manually and using `scikit-learn`:
-
----
 
 ### Visualization
 

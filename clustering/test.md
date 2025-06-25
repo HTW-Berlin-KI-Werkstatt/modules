@@ -12,11 +12,9 @@ classes: wide
 
 ## Clustering im echten Leben
 
+Der Künstler Urs Wehrli ist dafür bekannt, dass er sehr gern aufräumt. Nichts ist vor ihm sicher, nicht mal Kandisky. Die *Sendung mit der Maus* erklärt das sehr schön - [schauen Sie sich es gern im Video an](https://www.youtube.com/watch?v=GPeNVYKaYZE):
 
-![](./img/Wehrli.png)
-
-Der Künstler Urs Wehrli ist dafür bekannt, dass er sehr gern aufräumt. Nichts ist vor ihm sicher, nicht mal Kandisky. Die *Sendung mit der Maus* erklärt das sehr schön - [schauen Sie sich es gern im Video an](https://www.youtube.com/watch?v=GPeNVYKaYZE)!
-
+<a href="https://www.youtube.com/watch?v=GPeNVYKaYZE"><img src="./img/Wehrli.png"></a>
 
 
 Dieses "Aufräumen", das Herr Wehrli da so gerne betreibt, ist letzten Endes eine besondere Form der Datenanalyse. Hier werden Entitäten in **Cluster** gruppiert, basierend auf ihren **Merkmalen**. 
@@ -73,17 +71,17 @@ In beiden Fällen lässt sich das finale Ergebnis als hierarchische Struktur (Ba
 {: .notice--info}
 
 Für das hierarchische Clustering gibt es viele algorithmische Varianten, die sich unterscheiden durch die Wahl des konkreten Abstandsmaßes oder die Art, wie der Abstand zwischen zwei *Gruppen* von Punkten bestimmt wird. Studieren Sie die mathematischen Details der Algorithmengruppe in der [Dokumentation von Scikit Learn zu hierarchischem Clustering](https://scikit-learn.org/stable/modules/clustering.html#hierarchical-clustering).
-{: .notice--task}
+{: .notice--warning}
 
 
 
 ### Zentroid-Clustering
 
 Dieses Vorgehen erfordert die Wahl von $k$, der *Anzahl* der zu bildenden Cluster, woraufhin der Algorithmus den Mittelpunkt eines Clusters bestimmt und Daten um diesen zentralen Punkt (das Zentroid) sammelt. Dies wird für alle $k$ Cluster durchgeführt, wobei üblicherweise Maße wie die Kompaktheit der Cluster und der Abstand zwischen Clustern optimiert wird. 
-{: .notice--info}
+{: .notice--success}
 
 K-Means-Clustering ist mit Abstand die beliebteste Version des Zentroid-Clustering. Studieren Sie die mathematischen Details des Algorithmus in der [K-Means Dokumentation von Scikit Learn](https://scikit-learn.org/stable/modules/clustering.html#k-means).
-{: .notice--task}
+{: .notice--warning}
 
 
 ![Infografik zum hierarchischen Clustering](./img/clustering-kmeans.png)

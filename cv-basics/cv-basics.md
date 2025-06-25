@@ -50,8 +50,10 @@ Laden wir nun ein Bild und beobachten wir seine verschiedenen Eigenschaften:
 Warum dieses Bild?&nbsp; [[Fun Fact 1]](https://en.wikipedia.org/wiki/Lenna)&nbsp;&nbsp;  [[Fun Fact 2]](https://www.tandfonline.com/doi/full/10.1080/09500340.2016.1270881)
 
 
-<img align="left" src="../../assets/images/mouse-arrow.png" width=40px> &nbsp;&nbsp;Die weitere Analyse setzen wir in einem [Jupyter Notebook](./Study_Lena.ipynb) fort. **Bitte folgen Sie der Lektion dorthin.**{: .notice--warning}
-<br><br><br>
+Die weitere Analyse setzen wir in einem [Jupyter Notebook](./Study_Lena.ipynb) fort. 
+
+**Bitte folgen Sie der Lektion dorthin.**{: .notice--warning}
+
 
 
 ⚑ **Quellenangabe:** Einige Inhalte dieses Artikels und des Notebooks sind manuell ins Deutsche übersetzt aus dem Blog Post ["Image Data Analysis Using Python"](https://towardsdatascience.com/image-data-analysis-using-python-edddfdf128f4) von Yassine Hamdaoui, verfasst Dec 2019, übernommen und mit eigenen Formulierungen und Inhalten ergänzt worden.
