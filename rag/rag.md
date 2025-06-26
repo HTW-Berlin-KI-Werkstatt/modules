@@ -56,4 +56,7 @@ response = query_engine.query("What is the meaning of life?")
 print(response)
 ```
 
-Anmerkung: Stand Sommer 2024 nutzt `llama-index` default-mäßig das Modell `gpt-3.5-turbo` von OpenAI als LLM zur Antwortgenerierung und das Modell `text-embedding-ada-002` für Embedding und Retrieval. Das heißt insbesondere, dass Sie für die Arbeit mit `llama-index` in der Default-Einstellung einen (kostenpflichtigen) OpenAI API key benötigen. Alternativ können Sie in der Konfiguration aber auf Open Source Modelle wechseln. {: .notice--info}
+**Anmerkung 1:** Aktuell nutzt `llama-index` defaultmäßig in den Tutorials ein GPT-Modell von OpenAI als LLM zur Antwortgenerierung und zum Beispiel das Modell `text-embedding-ada-002` für Embedding und Retrieval. Das heißt insbesondere, dass Sie für die Arbeit mit `llama-index` in der Default-Einstellung einen (kostenpflichtigen) OpenAI API key benötigen. Alternativ können Sie in der Konfiguration aber auf Open Source Modelle wechseln. 
+{: .notice--info}
+
+**Anmerkung 2:** `llama-index` ist verhältnismäßig übersichtlich und schnell zu erlernen. Für komplexere und modernere LLM-Lösungen stehen aber größere Plattformen wie **LangSmith** und **smolagents** zur Verfügung. Für komplexe KI-Projekte mit agentischen Systemen sei auf **LangGraph** verwiesen.
