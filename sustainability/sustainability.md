@@ -15,7 +15,6 @@ classes: wide
 [(Erklärung)](https://www.explainxkcd.com/wiki/index.php/2635:_Superintelligent_AIs)
 
 
-
 Der Begriff Data Science wird üblicherweise zuallererst im Zusammenhang mit Unternehmensdaten verwendet:
 * Kann ich Betrugsfälle bei Kreditkartenzahlung identifizieren? 
 * Kann ich meine Logistik-Kette opitimieren?
@@ -37,16 +36,16 @@ Typische Anwendungen von Data Science für Umweltschutz beziehen sich üblicherw
 
 ### Data Science als strategisches Werkzeug
 
-Wie wir im Bereich [Data Science für Unternehmen](/lectures/10/10.md) gelernt haben, ist ein Wesentlicher Aspekt von Data Science auch die **Definition** und **Messbar-Machung** von Metriken. 
+Ein wesentlicher Aspekt von Data Science ist auch die **Definition** und **Messbar-Machung** von Metriken (lesen Sie mehr über  [Data Science für Reporting und Business Intelligence](/modules/business-intelligence/bi.md))
 
 Ein schönes Beispiel ist der [Sustainability Development Goals Tracker](https://ourworldindata.org/sdgs) des [*Our World in Data Teams*](https://ourworldindata.org/). Mit Arbeiten wie diesen macht man 
 * Probleme erstmals sichtbar und quantifizierbar sowie
-* Lösungen vergleichbar
+* Lösungen vergleichbar.
 
 Gerade für sehr komplexe Problemlagen macht Data Sciene Probleme und Lösungsansätze so überhaupt erst besprechbar und schafft *Accountabilty* bei den Verantwortlichen.
 
 
-### Zur Vertiefung
+### Achtung: Profi-DS-Studie zur Vertiefung 
 
 **Circular Economy, durchgerechnet:** Eine exzellente Studie als Anwendung von Data Science für Umweltschutz, fachlich irgendwo zwischen Statistik, Suppy Chain Engineering und gesundem Menschenverstand, ist dieser Blogartikel zum Thema [Data Science for Sustainability — Simulate a Circular Economy](https://towardsdatascience.com/data-science-for-sustainability-simulate-a-circular-economy-b6a13d4b0451) von Samir Saci. Bei Circular Economy / [Kreislaufwirtschat](https://de.wikipedia.org/wiki/Kreislaufwirtschaft) handelt es sich um ein fundamentales Konzept der Nachhaltigkeit. Sie können die Artikel auch [hier](./img/circular.pdf) einsehen.
 {: .notice--info} 
