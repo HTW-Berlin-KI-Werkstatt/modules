@@ -56,6 +56,27 @@ Es gibt verschiedene Formen von Autoencodern, die jeweils für unterschiedliche 
 
 Das Verständnis der verschiedenen Arten von Autoencodern ermöglicht es Praktikern, die am besten geeignete Architektur für ihre spezifische Aufgabe oder Datenart zu wählen. Jeder Typ hat seine eigenen Merkmale und Vorteile, die ihn zu einem vielseitigen Werkzeug für eine breite Palette von Anwendungen in der Datenanalyse, Bildverarbeitung, generativen Modellierung und mehr machen.
 
+
+## Beispiel: Vector Embeddings mit neuronalen Netzen
+
+Um alltägliche Daten als Vektoren abzubilden, werden verschiedene Methoden genutzt. [Dieser Code](/modules/autoencoder/MNIST_Autoencoder.ipynb) zeigt exemplarisch, wie man einen **Autoencoder** für [MNIST](https://en.wikipedia.org/wiki/MNIST_database)-Daten trainieren kann. Hier nutzen wir einen Autoencoder, um Bilddaten erst auf eine niedrig-dimensionalere Repräsentation abzubilden (Encoder) und dann (fehlerbehaftet) die Originaldaten wieder herzustellen. Nachdem das neuronale Netz wiederholt trainiert wurde, so dass der Rekonstruktionsfehler minimiert wurde, kann der innere *Latent Space* als niedrigdimensionaleres **Embedding** der Originaldaten verstanden werden. Der Encoder ist also unser *Vectorizer*, der Latent Space unser Ziel-Vektorraum, und der Decoder die Rückübersetzung in den Bildraum.
+
+Bei genauerer Betrachtung des Jupyter Notebooks fällt insbesondere auf, dass ähnliche Bilder (z.B. alle Bilder der handschriftlichen Zahl "0") auf ähnliche (nahe beieinander liegende) Vektoren im Latent Space abgebildet werden:
+
+"Nullen" im latent space:
+
+![](./images/latent_zeros.png)
+
+Im Vergleich dazu "Vieren" im latent space:
+
+![](images/latent_fours.png)
+
+Eine detaillierte Erklärung zum Thema Autoencoder finden Sie in [der zugehörigen Lektion](/modules/autoencoder/autoencoder.md). 
+{: .notice--info} 
+
+Nochmal: *Das heißt, dass sich semantisch-inhaltliche Daten auch an einem ähnlichen Ort im Latent Space befinden.*
+
+
 ## Was sind die Anwendungen eines Autoencoders?
 
 Autoencoder sind aufgrund ihrer Vielseitigkeit und ihrer Fähigkeit, sinnvolle Darstellungen aus Daten zu extrahieren, in verschiedenen Bereichen sehr beliebt. Im Folgenden werden einige der wichtigsten Anwendungen vorgestellt:
@@ -108,11 +129,6 @@ Ein weiterer Aspekt ist die Generalisierung von ungesehenen Daten. Autoencoder k
 
 Trotz dieser Herausforderungen finden Autoencoder Anwendung bei der Erkennung von Anomalien, der Bild- und Texterzeugung und beim Lernen von Merkmalen. Wenn man sich ihrer Grenzen bewusst ist, können Praktiker fundierte Entscheidungen treffen und Autoencoder in ihren spezifischen Bereichen effektiv einsetzen.
 
-## Wie erstellt man einen Autoencoder in Python?
-Um die Implementierung eines einfachen Autoencoders zu demonstrieren, werden wir den MNIST-Datensatz verwenden, der aus Graustufenbildern handgeschriebener Ziffern und der Python-Bibliothek TensorFlow besteht. Das Ziel des Autoencoders wird es sein, diese Bilder durch das Erlernen einer effizienten Repräsentation zu rekonstruieren.
-
-**Aufgabe**: Verfolgen Sie das Code-Beispiel in im Jupyter Notebook zum [MNIST Autoencoder](/modules/autoencoder/MNIST_Autoencoder.ipynb)
-{: .notice--warning} 
 
 
 ## Quellen
