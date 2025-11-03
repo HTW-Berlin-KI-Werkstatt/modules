@@ -25,8 +25,8 @@ Let's recall all the notation in the equation again:
 
 Our machine learning model simply consists of the coefficients $$\mathbf{w} = (w_0, w_1, \ldots, w_D)^T$$ and $$b$$. Training therefore is finding again the parameters of such a model. But how do we do this?
 First of all, we need to think about how to measure *suitability* of model parameters - how can we determine whether a parameter set fits to a training set.
-Indeed, this was a question already asked by Gauß and fellows once upon a time and the main idea is to measure the squared error of the predicted value $$f(\mathbf{x}^{(i)}; \mathbf{w}, b)$$ and $y_i$. 
-Please note that we are now using the notation $$\mathbf{x}^{(i)} = (x^{(i)}_1, \ldots, x^{(i)}_D)$$ to refer to training example $i$.
+Indeed, this was a question already asked by Gauß and fellows once upon a time and the main idea is to measure the squared error of the predicted value $$f(\mathbf{x}^{(i)}; \mathbf{w}, b)$$ and $$y_i$$. 
+Please note that we are now using the notation $$\mathbf{x}^{(i)} = (x^{(i)}_1, \ldots, x^{(i)}_D)$$ to refer to training example $$i$$.
 Summing all the squared errors gives us the final objective function (the one that we like to minimize):
 
 $$
