@@ -112,7 +112,7 @@ root of the MSE, but has the same unit as the input value and therefore is easie
 
 Let $$\bar{y}$$ be the mean of the ground-truth values (across the test set), then we can compute the so-called $$R$$ square metric:
 
-$$R^2 = 1 - \frac{\sum_{i=1}^{n} (\hat{y}_i - y_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}$$
+$$R^2 = 1 - \frac{\sum_{i=1}^{n} (\hat{y}_i - y_i)^2}{\sum_{i=1}^{n} (\hat{y}_i - \bar{y})^2}$$
 
 The denominator should look familiar: it is the variance of the labels without normalizing it wrt. to the number of test examples.
 This measure normalizes the overall MSE error with the variance of the ground-truth labels. In which situations do you think this is reasonable?
