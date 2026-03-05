@@ -136,5 +136,5 @@ class TransformerBlock(nn.Module):
 ## Further Resources
 
 1. **The Annotated Transformer:** An excellent resource that annotates and explains each part of the transformer model. Available [here](https://nlp.seas.harvard.edu/2018/04/03/attention.html).
-2. **Diving Deep into Transformer Models:** Detailed articles explaining every aspect of transformers, including applications beyond NLP. Check [this](https://medium.com/syncedreview/a-brief-guide-to-transformers-a568aa9e0d2d).
+2. **Diving Deep into Transformer Models:** Detailed articles explaining every aspect of transformers, including applications beyond NLP. Check [this](https://medium.com/@asimsultan2/understanding-transformers-a-simplified-guide-with-easy-to-understand-examples-227fd8d31848).
 3. **Understanding the Transformer Model:** Visual guides showing how transformers work under the hood. Find it [here](https://jalammar.github.io/illustrated-transformer/).
