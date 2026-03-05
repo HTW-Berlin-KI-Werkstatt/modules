@@ -100,7 +100,7 @@ common to be used. We will learn later on how these embeddings are learned, let'
 ### NLP Example: Using CLIP Model to Obtain Text Embeddings
 
 For this example, we'll use the CLIP model of Open AI [(Radford et al., 2021)](https://arxiv.org/abs/2103.00020) to obtain text embeddings. The embedding model consists of several parameters, which
-we obtain from [huggingface.com](huggingface.com) - an amazing open portal consisting of models, datasets, and benchmarks.
+we obtain from [huggingface.co](https://huggingface.co) - an amazing open portal consisting of models, datasets, and benchmarks.
 Their python module ``transformers`` works like a charm and takes care of the download and caching in the background:
 
 ```python
