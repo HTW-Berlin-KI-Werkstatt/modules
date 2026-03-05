@@ -25,10 +25,10 @@ Why is the squared Euclidean distance used instead of the non-squared version? C
 that might be suitable?
 {: .notice--info}
 
-A straightforward extension of the Nearest Neighbor classifier is the $k$-Nearest Classifier: 
+A straightforward extension of the Nearest Neighbor classifier is the $$k$$-Nearest Classifier: 
 we find the $$k$$ nearest neighbors and then predict according to a majority vote of them.
 
-Can you think of other strategies for making the prediction based on the $k$ nearest neighbors?
+Can you think of other strategies for making the prediction based on the $$k$$ nearest neighbors?
 {: .notice--info}
 
 ## Example
