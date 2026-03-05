@@ -51,7 +51,7 @@ print("Cross-validation scores:", scores)
 In this case the function ``cross_val_score`` takes care of the training and the evaluation.
 In the majority of cases, you might want to have more control over this process and loop yourself over the splits provided by ``kf``.
 
-Please also read the excellent tutorial at [https://mlu-explain.github.io/cross-validation/](mlu-explain) on
+Please also read the excellent tutorial at [mlu-explain](https://mlu-explain.github.io/cross-validation/) on
 cross-validation.
 
 ### 3.2 Train/Validation/Test Split
@@ -70,7 +70,7 @@ X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.4)
 X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=0.5)
 ```
 
-Please also read the excellent tutorial at [https://mlu-explain.github.io/train-test-validation/](mlu-explain) on
+Please also read the excellent tutorial at [mlu-explain](https://mlu-explain.github.io/train-test-validation/) on
 splitting strategies.
 
 ## 4. Metrics for Regression
