@@ -51,7 +51,7 @@ The last statement might fall from heaven, but it is actually a classical result
 We can learn quite a lot from the last statement:
 1. The largest error of the ensemble is reached for $$\rho=1$$, i.e. both models outputs agree with each other (positive linear dependance). In this case, we do not gain anything with our ensemble. It's like having a committee of people always agreeing.
 2. The smallest error can be achieved with a $$\rho=-1$$ (anti-correlation), i.e. both models do not agree.
-3. Independent models in the ensemble lead to a reduction of the error by 50%.
+3. Independent models in the ensemble lead to a reduction of the expected squared error by 50% (the standard deviation of the error shrinks by a factor of $$1/\sqrt{2}$$).
 
 Of course, in reality nothing is perfectly normally distributed and our ensembles involve more than two models. But
 similar derivations can be done in way more general settings. In summary, independent or even disagreeing models lead to a strong ensemble.

@@ -43,7 +43,7 @@ The following code snipplet which skips some parts such as data loading shows ho
 ```python
 from sklearn.model_selection import KFold, cross_val_score
 model = SomeModel()
-kf = KFold(n_splits=5)
+kf = KFold(n_splits=5, shuffle=True, random_state=42)
 scores = cross_val_score(model, X, y, cv=kf)
 print("Cross-validation scores:", scores)
 ```
@@ -125,10 +125,10 @@ This measure normalizes the overall MSE error with the variance of the ground-tr
 
 These metrics are easy to obtain in python:
 ```python
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+from sklearn.metrics import mean_absolute_error, mean_squared_error, root_mean_squared_error, r2_score
 mae = mean_absolute_error(y_true, y_pred)
 mse = mean_squared_error(y_true, y_pred)
-rmse = mean_squared_error(y_true, y_pred, squared=False)
+rmse = root_mean_squared_error(y_true, y_pred)
 r2 = r2_score(y_true, y_pred)
 ```
 

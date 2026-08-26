@@ -58,10 +58,12 @@ with the respective region of the image and sum up all the values. The sum is th
 ... and so on. We get the resulting matrix (often called *features map*):
 
 ```
-[-6, 14, 8]
-[ 3, 12, 10]
-[-4, 2, 6]
+[-6, 14, 15]
+[-6, 10, 11]
+[-3,  6,  4]
 ```
+
+Please note: strictly speaking, sliding the filter and summing the products without flipping the filter is called *cross-correlation* in signal processing. Deep learning frameworks nevertheless call this operation "convolution" - since the filter is learned anyway, the flip does not matter.
 
 Please note that we only computed values for pixels of the input image that are not on the border of the image, i.e. which allow the filter matrix to be centered on.
 Convolution operations in neural networks have of course again several parameters to play with:

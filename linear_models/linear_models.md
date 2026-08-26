@@ -14,8 +14,10 @@ By understanding and leveraging linear models, you gain a solid foundation that 
 
 A linear model aims to predict the target variable $$y$$ as a linear combination of input features $$\mathbf{x} = (x_1, \ldots, x_D)^T$$ as follows:
 $$
-f(\mathbf{x}; \mathbf{w}, b) = b + w_1 x_1 + w_2 x_2 + \cdots + w_D x_D + \epsilon
+f(\mathbf{x}; \mathbf{w}, b) = b + w_1 x_1 + w_2 x_2 + \cdots + w_D x_D
 $$
+
+The target variable is then modeled as the output of $$f$$ plus some noise $$\epsilon$$ that we can not explain with our features: $$y = f(\mathbf{x}; \mathbf{w}, b) + \epsilon$$.
 
 Let's recall all the notation in the equation again:
 - $$y$$ is our target variable (as usual).
@@ -23,7 +25,7 @@ Let's recall all the notation in the equation again:
 - $$b$$ is the intercept (or bias, or offset).
 - $$w_1, w_2, \ldots, w_D$$ are the coefficients (weights).
 
-Our machine learning model simply consists of the coefficients $$\mathbf{w} = (w_0, w_1, \ldots, w_D)^T$$ and $$b$$. Training therefore is finding again the parameters of such a model. But how do we do this?
+Our machine learning model simply consists of the coefficients $$\mathbf{w} = (w_1, \ldots, w_D)^T$$ and $$b$$. Training therefore is finding again the parameters of such a model. But how do we do this?
 First of all, we need to think about how to measure *suitability* of model parameters - how can we determine whether a parameter set fits to a training set.
 Indeed, this was a question already asked by Gauß and fellows once upon a time and the main idea is to measure the squared error of the predicted value $$f(\mathbf{x}^{(i)}; \mathbf{w}, b)$$ and $$y_i$$. 
 Please note that we are now using the notation $$\mathbf{x}^{(i)} = (x^{(i)}_1, \ldots, x^{(i)}_D)$$ to refer to training example $$i$$.
@@ -104,7 +106,7 @@ where $$\hat{y}_i = \sigma(\mathbf{w} \cdot \mathbf{x}^{(i)} + b)$$ is the predi
 
 For multiclass classification tasks, where there are more than two classes, we use the **Softmax Regression** (also known as Multinomial Logistic Regression).
 
-The softmax function generalizes the logistic function to $$K$$ multiple classes. For a given input $$\mathbf{x}$$ and a set of weights $$\mathbf{W} \in \mathbb{R}^{D \times K}$$ and biases $$\mathbf{b} \in \mathbb{R}^{D}$$, the probability that the input belongs to class $$k$$ is given by:
+The softmax function generalizes the logistic function to $$K$$ multiple classes. For a given input $$\mathbf{x}$$ and a set of weights $$\mathbf{W} \in \mathbb{R}^{D \times K}$$ and biases $$\mathbf{b} \in \mathbb{R}^{K}$$, the probability that the input belongs to class $$k$$ is given by:
 $$
 P(y = k \mid \mathbf{x}) = \frac{e^{z_k}}{\sum_{j=1}^{K} e^{z_j}}
 $$
@@ -116,7 +118,7 @@ Similar to binary logistic regression, the multivariate scenario uses categorica
 $$
 \begin{align}
 L(\mathbf{W}, \mathbf{b}) &= - \sum_{i=1}^{n} \sum_{k=1}^{K} y_{i,k} \log(\hat{y}_{i,k})\\
-                          &= - \sum_{i=1}^{n} \sum_{k=1}^{K} y_{i,k} \log\left( \sigma(\mathbf{w}_k \cdot \mathbf{x}^{(i)} + b_k) \right)
+                          &= - \sum_{i=1}^{n} \sum_{k=1}^{K} y_{i,k} \log\left( \frac{e^{z_{i,k}}}{\sum_{j=1}^{K} e^{z_{i,j}}} \right) \quad \text{with } z_{i,k} = \mathbf{w}_k^T \mathbf{x}^{(i)} + b_k
 \end{align}
 $$
 
@@ -132,18 +134,19 @@ Here's a simple example using `scikit-learn` for both binary logistic regression
 
 ```python
 from sklearn.linear_model import LogisticRegression
-from sklearn.datasets import make_classification, make_multilabel_classification
+from sklearn.datasets import make_classification
 import matplotlib.pyplot as plt
+import numpy as np
 
 # Binary classification with logistic regression
-X_bin, y_bin = make_classification(n_samples=100, n_features=2, n_classes=2, random_state=42)
+X_bin, y_bin = make_classification(n_samples=100, n_features=2, n_informative=2, n_redundant=0, n_classes=2, random_state=42)
 model_bin = LogisticRegression()
 model_bin.fit(X_bin, y_bin)
 
 # Multiclass classification with softmax regression
-X_multi, y_multi = make_multilabel_classification(n_samples=100, n_features=2, n_classes=3, random_state=42)
-model_multi = LogisticRegression(multi_class='multinomial', solver='lbfgs')
-model_multi.fit(X_multi, y_multi.argmax(axis=1))
+X_multi, y_multi = make_classification(n_samples=100, n_features=2, n_informative=2, n_redundant=0, n_classes=3, n_clusters_per_class=1, random_state=42)
+model_multi = LogisticRegression()  # multinomial (softmax) is the default for K>2
+model_multi.fit(X_multi, y_multi)
 
 # Plotting decision boundaries for binary logistic regression
 plt.scatter(X_bin[:, 0], X_bin[:, 1], c=y_bin, cmap='bwr', label='Data points')
@@ -157,7 +160,7 @@ plt.legend()
 plt.show()
 
 # Plotting decision boundaries for softmax regression (multiclass)
-plt.scatter(X_multi[:, 0], X_multi[:, 1], c=y_multi.argmax(axis=1), cmap='viridis', label='Data points')
+plt.scatter(X_multi[:, 0], X_multi[:, 1], c=y_multi, cmap='viridis', label='Data points')
 plt.title('Softmax Regression (Multiclass)')
 plt.xlabel('Feature 1')
 plt.ylabel('Feature 2')

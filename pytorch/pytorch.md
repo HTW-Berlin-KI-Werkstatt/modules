@@ -29,7 +29,7 @@ import torch
 tensor_a = torch.tensor([[1.0, 2.0], [3.0, 4.0]])
 
 # Random tensor
-tensor_b = torch.rand((3, 3))
+tensor_b = torch.rand((2, 2))
 
 # Zero tensor
 tensor_c = torch.zeros_like(tensor_a)
@@ -45,7 +45,7 @@ Basic operations:
 result_add = tensor_a + tensor_b
 
 # Matrix multiplication
-result_mul = torch.matmul(tensor_a, tensor_b[:2])
+result_mul = torch.matmul(tensor_a, tensor_b)
 
 # Element-wise multiplication
 result_elem_mul = tensor_a * tensor_a
@@ -96,7 +96,7 @@ x = torch.tensor(2.0, requires_grad=True)
 y = x ** 3 + 3 * x ** 2 + 5
 ```
 
-The gradient $$\nabla_x y$$ (or $$\frac{\mathrm{d}y}{\mathrm{d}y}$$ in our simple case) can then be automatically computed by:
+The gradient $$\nabla_x y$$ (or $$\frac{\mathrm{d}y}{\mathrm{d}x}$$ in our simple case) can then be automatically computed by:
 
 ```python
 # Backpropagate to populate gradients
@@ -173,9 +173,12 @@ Another example are Recurrent Neural Networks (RNNs):
 
 ```python
 def dynamic_rnn(x, hidden_size=10):
-    h = torch.zeros(hidden_size, dtype=torch.float32)
-    for t in range(x.size(0)):
-        h = torch.tanh(x[t] @ h)
+    input_size = x.size(1)
+    W_x = torch.randn(hidden_size, input_size, requires_grad=True)
+    W_h = torch.randn(hidden_size, hidden_size, requires_grad=True)
+    h = torch.zeros(hidden_size)
+    for t in range(x.size(0)):  # number of loop iterations depends on the input
+        h = torch.tanh(W_x @ x[t] + W_h @ h)
     return h
 
 # Sequence of inputs

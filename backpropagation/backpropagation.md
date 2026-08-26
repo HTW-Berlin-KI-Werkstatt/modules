@@ -9,7 +9,7 @@ classes: wide
 
 Basically we have everything we need to jump to back-propagation: back-propagation is simply
  figuring out how to compute all gradients of a loss function automatically and efficiently, such
- that we can use it for gradient descent optimization. We have already seen how back-propagation can be used in pytorch - remember the ``.backwards()`` command? 
+ that we can use it for gradient descent optimization. We have already seen how back-propagation can be used in pytorch - remember the ``.backward()`` command? 
 
 ## Backpropagation - basic principle
 
@@ -23,11 +23,11 @@ f_2(z; w_3, w_4 ) &= A(w_3 z + w_4)
 \end{align}
 $$
 
-with parameters $$\mathbf{w} = (w_0, w_1, w_2, w_3)$$ and $$A$$ being the sigmoid function.
-How can we find good parameters $$\mathbf{w}$$? We also focus only on a single example $$\mathbf{x}=(1,1)$$ with label $$y=2$$. The model output $$f(\mathbf{x})$$ needs to be close to $$y$$.
+with parameters $$\mathbf{w} = (w_1, w_2, w_3, w_4)$$ and $$A$$ being the sigmoid function.
+How can we find good parameters $$\mathbf{w}$$? We also focus only on a single example $$\mathbf{x}=(1,1)$$ with label $$y=0.9$$. The model output $$f(\mathbf{x})$$ needs to be close to $$y$$.
 
 Let's do one *forward pass*, i.e. we compute $$f$$ for some initially chosen parameters $$\mathbf{w}$$. We also store all intermediate values, such as the output of $$f_1(\cdot) = z$$. 
-Let's assume the label $$y_i$$ is $$2$$ but the model output $$f(\cdot)$$ is $$0.1$$ far from being ideal. What can be done in the last set of weights before the output?
+Let's assume the label $$y$$ is $$0.9$$ but the model output $$f(\cdot)$$ is $$0.1$$ far from being ideal. What can be done in the last set of weights before the output?
 
 1. We could increase the bias term $$w_4$$,
 2. increase the coefficient $$w_3$$ of $$z$$,

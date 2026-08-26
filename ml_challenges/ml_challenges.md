@@ -85,7 +85,8 @@ Just training one model and making predictions with it, therefore, does not work
 
 - **Types of Distribution Shift**:
   - **Covariate Shift**: Change in the input features' distribution $$p(\mathbf{x})$$ (change of the camera image over time and season for object detection). An example of a covariate shift is given in the image above for two different application scenarios.
-  - **Label Shift**: Change in the output label distribution $$p(y \vert \mathbf{x})$$ changes. 
+  - **Label Shift**: Change in the label distribution $$p(y)$$, e.g. the fraction of spam emails grows over time while the spam emails themselves look the same.
+  - **Concept Shift**: Change in the relationship between inputs and labels $$p(y \vert \mathbf{x})$$ - the customer preference example above is of this kind: the same product $$\mathbf{x}$$ is bought with a different likelihood depending on the season.
 - **Detection**: Statistical tests that compare the distributions of the data over time.
 - **Handling Techniques**:
   - Re-train models with new data.

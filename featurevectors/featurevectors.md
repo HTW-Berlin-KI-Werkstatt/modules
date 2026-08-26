@@ -139,6 +139,8 @@ The most important aspects of CLIP is that it offers computing image embeddings 
 add the following function:
 
 ```python
+from PIL import Image
+
 def get_image_embedding(image_path):
     # Load and preprocess the image
     image = Image.open(image_path)

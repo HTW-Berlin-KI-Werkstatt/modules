@@ -29,10 +29,10 @@ The benefits of AutoML are pretty obvious:
 - **Automatic Feature Engineering**: AutoGluon transforms raw tabular data into features suitable for machine learning models.
 - **Model Ensembling**: It automatically trains multiple types of models and ensembles them to boost performance.
 
-Here's an example of using `AutoGluon` for a regression task:
+Here's an example of using `AutoGluon` for a classification task (predicting the income class from census data):
 
 ```python
-from autogluon.tabular import TabularPredictor
+from autogluon.tabular import TabularDataset, TabularPredictor
 
 # Load dataset
 train_data = TabularDataset('https://autogluon.s3.amazonaws.com/datasets/Inc/train.csv')

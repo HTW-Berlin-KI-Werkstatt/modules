@@ -41,12 +41,13 @@ import numpy as np
 import torch
 
 def get_positional_encoding(max_seq_len, embed_dim):
+    assert embed_dim % 2 == 0, "embedding dimension needs to be even"
     positional_encoding = np.zeros((max_seq_len, embed_dim))
     
     for pos in range(max_seq_len):
-        for i in range(0, embed_dim, 2):
-            positional_encoding[pos, i] = np.sin(pos / (10000 ** ((2 * i)/embed_dim)))
-            positional_encoding[pos, i + 1] = np.cos(pos / (10000 ** ((2 * i)/embed_dim)))
+        for i in range(0, embed_dim, 2):  # i already runs over the even indices 2i of the formula
+            positional_encoding[pos, i] = np.sin(pos / (10000 ** (i / embed_dim)))
+            positional_encoding[pos, i + 1] = np.cos(pos / (10000 ** (i / embed_dim)))
 
     return torch.tensor(positional_encoding, dtype=torch.float32)
 ```

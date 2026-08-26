@@ -35,10 +35,10 @@ We therefore have to measure the quality of a split using certain criteria.
 
 A nice visualization of this process can be found at [mlu-explain](https://mlu-explain.github.io/decision-tree/).
 
-Let $$p_\kappa$$ be the portion of examples belonging to class $$\kappa$$ in the current decision node $$T$$.
+Let $$p_\kappa$$ be the portion of examples belonging to class $$\kappa$$ in the current decision node $$v$$.
 The *entropy* measures how impure the set of examples is:
 
-$$H(v) = - \sum_{\kappa=0}^{C} p_\kappa \log(p_\kappa)$$
+$$H(v) = - \sum_{\kappa=1}^{C} p_\kappa \log(p_\kappa)$$
 
 and has a maximal value for a uniform distribution, i.e. we have an equal number of examples from each class.
 We now can compute the so called *information gain*, which is the reduction in entropy after a dataset is split:

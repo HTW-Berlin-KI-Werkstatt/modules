@@ -76,7 +76,7 @@ $$
 Similarily, all bias values can be combined into a vector $$\mathbf{b}$$:
 
 $$
-\mathbf{b} = \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_D \end{bmatrix}
+\mathbf{b} = \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_M \end{bmatrix}
 $$
 
 The transformation (without non-linear activation) 
