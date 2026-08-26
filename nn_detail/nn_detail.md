@@ -32,7 +32,7 @@ The above description should sound familiar, basically the unit first performs t
 model.
 
 A linear model has several advantages, however, to process more complex data, which is not separable
-by a single hyperplane, we need to introduce non-linearity essential for networks build from units.
+by a single hyperplane, we need to introduce non-linearity essential for networks built from units.
 
 Therefore, the unit passes the result of the linear combination $$z$$ through an activation function $$ A(z) $$. Common activation functions include:
 
@@ -45,9 +45,9 @@ The result of the activation function is the unit's output.
 ## Building networks
 
 A single unit is basically just a non-linearly transformed output of a linear model,
-but connecting them is where the magic happens. As you can see in the image, you can transform the input
-already with multiple units and furthermore you can sequentially connect the units to transform an input multiple times sequentially. This concept leads to **Multi-layer Perceptron (MLP)**,
-which are comprised with multiple layers: input layer, hidden layers, and an output layer. Each layer's units perform computations based on outputs from the preceding layer, forming a neural network architecture.
+but connecting them is where the magic happens. As you can see in the image below, you can transform the input
+already with multiple units and furthermore you can sequentially connect the units to transform an input multiple times sequentially. This concept leads to **Multi-layer Perceptrons (MLP)**,
+which are comprised of multiple layers: input layer, hidden layers, and an output layer. Each layer's units perform computations based on outputs from the preceding layer, forming a neural network architecture.
 
 
 Through stacking layers, multi-layer perceptrons (MLPs) can form intricate decision boundaries, capable of separating data that single-layer models cannot.
@@ -61,7 +61,7 @@ According to the [Universal Approximation Theorem](https://en.wikipedia.org/wiki
 
 In the context of neural networks, each layer consists of multiple units that perform computations using both linear models and non-linear transformations. This can be elegantly represented with linear algebra.
 
-We start by combing all weight vectors of a layer into a weight matrix $$\mathbf{W}$$. 
+We start by combining all weight vectors of a layer into a weight matrix $$\mathbf{W}$$. 
 Given $$D$$ inputs and $$M$$ output units, we define:
 
 $$
@@ -73,7 +73,7 @@ w_{M1} & w_{M2} & \cdots & w_{MD}
 \end{bmatrix}
 $$
    
-Similarily, all bias values can be combined into a vector $$\mathbf{b}$$:
+Similarly, all bias values can be combined into a vector $$\mathbf{b}$$:
 
 $$
 \mathbf{b} = \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_M \end{bmatrix}

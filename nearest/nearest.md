@@ -19,7 +19,7 @@ For a new input $$\mathbf{x}$$, we find the nearest neighbor and its label by:
 $$ \hat{y} = y_j \quad \text{where} \quad j = \arg\min_i \lVert \mathbf{x} - \mathbf{x}^{(i)} \rVert^2 $$
 
 The notation $$\lVert \cdot \rVert$$ is used here for the norm of the vector. The last part of the equation is therefore simply
-the quadratic distance of the test example $$\mathbf{x}$$ and the training example $$\mathbf{x}^{(i)}$$
+the squared Euclidean distance of the test example $$\mathbf{x}$$ and the training example $$\mathbf{x}^{(i)}$$
 
 Why is the squared Euclidean distance used instead of the non-squared version? Can you think of other distance measures
 that might be suitable?

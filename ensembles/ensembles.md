@@ -28,7 +28,7 @@ The squared error of the models is therefore characterized by the variance of $$
 respectively (please remember the definition of the variance here).
 
 Very importantly, we are not assuming $$f_1$$ and $$f_2$$ to be independent here!
-In contrast, their correlation is $$\rho$$. If you are asking yourself, what correlation really is, please go back and review your statistics basic! If $$\rho$$ is 0, both models are statistically independent. If $$\rho$$ is close to 1, both
+In contrast, their correlation is $$\rho$$. If you are asking yourself, what correlation really is, please go back and review your statistics basics! If $$\rho$$ is 0, both models are statistically independent. If $$\rho$$ is close to 1, both
 models are highly correlated, i.e. they agree with each other quite often.
 
 Let's get back to ensembles. An ensemble now combines predictions from multiple models.
@@ -49,7 +49,7 @@ $$
 The last statement might fall from heaven, but it is actually a classical result for the sum of two normally distributed variables (see ["Sum of normally distributed random variables"](https://en.wikipedia.org/wiki/Sum_of_normally_distributed_random_variables) and ["Normal distribution"](https://en.wikipedia.org/wiki/Normal_distribution)) for the case on correlated random variables.
 
 We can learn quite a lot from the last statement:
-1. The largest error of the ensemble is reached for $$\rho=1$$, i.e. both models outputs agree with each other (positive linear dependance). In this case, we do not gain anything with our ensemble. It's like having a committee of people always agreeing.
+1. The largest error of the ensemble is reached for $$\rho=1$$, i.e. both models' outputs agree with each other (positive linear dependence). In this case, we do not gain anything with our ensemble. It's like having a committee of people always agreeing.
 2. The smallest error can be achieved with a $$\rho=-1$$ (anti-correlation), i.e. both models do not agree.
 3. Independent models in the ensemble lead to a reduction of the expected squared error by 50% (the standard deviation of the error shrinks by a factor of $$1/\sqrt{2}$$).
 
@@ -65,7 +65,7 @@ Bagging (Bootstrap Aggregating) is an ensemble method that trains multiple insta
 
 #### Steps for Bagging:
 1. Generate several subsets from the original datasets.
-2. Train each subset with a base estimator.
+2. Train a base estimator on each subset.
 3. Aggregate the predictions from all the base estimators (e.g., through averaging for regression or voting for classification).
 
 In the following example, you can see a classical example of bagging with a decision tree as a base estimator.
@@ -105,7 +105,7 @@ The main algorithm works as follows:
 1. **Initialize model**: Start with a simple model (often referred to as weak learner) trained on the dataset.
 2. **Weight adjustment**: After the first model is trained, **adjust the weights of each training instance**. Instances that were misclassified by the model are given higher weights so that subsequent models focus more on these difficult cases.
 3. **Iterative training**: **Train** the next weak model **on the weighted data**. This process continues for a set number of iterations or until the model achieves a certain level of performance. Importantly, a model type needs to be used that allows for using instance weights. This can be done for example for decision trees or stumps (single thresholding of single features).
-4. **Model combination**: The final prediction is made by combining the predictions from all the models. Typically, these predictions are weighted based on the accuracy of the corresponding models. If a single model has a high accuracy on the training data it should given a high weight in the final decision.
+4. **Model combination**: The final prediction is made by combining the predictions from all the models. Typically, these predictions are weighted based on the accuracy of the corresponding models. If a single model has a high accuracy on the training data it should be given a high weight in the final decision.
 
 
 

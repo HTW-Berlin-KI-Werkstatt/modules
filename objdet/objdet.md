@@ -25,6 +25,7 @@ For each bounding box, the model predicts:
   - Class probabilities for each object class
 
 What is the maximum number of objects, a YOLO model can detect?
+{: .notice--info}
 
 ### Training and related loss functions
 
@@ -65,7 +66,7 @@ While YOLO is prominent due to its speed, other object detection models provide 
    - **Architecture**: Utilizes feature maps of different resolutions to handle varying object sizes, enhancing detection robustness.
    - **Strengths**: Balances trade-offs between speed and accuracy, often outperforming YOLO on certain tasks.
 
-## Further ressources
+## Further resources
 
 1. Further details explained: [datacamp.com](https://www.datacamp.com/blog/yolo-object-detection-explained)
 2. Ultralytics object detection: [docs.ultralytics.com](https://docs.ultralytics.com/de/tasks/detect/)

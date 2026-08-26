@@ -83,7 +83,7 @@ else:
 
 ## Gradients and Computation Graphs
 
-One of the main features of pytorch is to automatically calculate gradients such
+One of the main features of pytorch is to automatically calculate gradients
 from a given computation defined by tensor operations.
 To illustrate this, we often use the concept of a computation graph, where
 nodes represent operations (or initial variables) and the directed acyclic graph shows the

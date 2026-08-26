@@ -17,7 +17,7 @@ The journey towards modern LLMs was a long one (although it might seem like a qu
 different ingredients.
 An important aspect is the mapping of words to continuous vector spaces, where semantic similarities are captured through proximity in high-dimensional space.
 
-The ``word2vec`` approach offering a method to learn word associations from a large corpus of text by using shallow neural networks. The model optimizes the likelihood of observing target-context word pairs, capturing semantic relationships between words.
+The ``word2vec`` approach offers a method to learn word associations from a large corpus of text by using shallow neural networks. The model optimizes the likelihood of observing target-context word pairs, capturing semantic relationships between words.
 
 ## LLM Input Representation: Tokenization
 

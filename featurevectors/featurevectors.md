@@ -8,26 +8,26 @@ classes: wide
 ---
 
 As we have seen in the previous examples, classical machine learning models require vectors as inputs. These vectors are
-often refered to as *feature vectors* or *embeddings* or in more general *representations*. We will come to the subtle differences later on.
+often referred to as *feature vectors* or *embeddings* or in more general *representations*. We will come to the subtle differences later on.
 But how do we turn our inputs (text, image, video, etc.) into vectors? 
 What would be good representations?
 Let's answer the last question first.
 
 ## What is a good representation?
 
-This question is best answered for a classification tasks and the goal is always to have a representation that is very
-easy for the classication model to learn from:
+This question is best answered for classification tasks and the goal is always to have a representation that is very
+easy for the classification model to learn from:
 1. **Discriminative Power:** The ability to distinguish between different classes effectively.
 2. **Invariance**: Stability to transformations such as rotation, scaling, or translation in the input data.
 3. **Noise Robustness:** The ability to handle and perform well even when the data contains noise or irrelevant features.
 4. **Relevant Features:** Focusing on relevant features.
 
-Some traditional machine learning scientist would still mention *low dimensionality* here, but this is open to debate.
+Some traditional machine learning scientists would still mention *low dimensionality* here, but this is open to debate.
 
 ## Feature extraction
 
 Deriving good features by manually designed algorithms has been the most important task of a machine learning engineer back in the days and for certain
-applications it still is. Figuring out how to turn high-dimensional images into compact and discriminate features for example highly depends on the application - is it
+applications it still is. Figuring out how to turn high-dimensional images into compact and discriminative features for example highly depends on the application - is it
 important to consider color or is it rather important to gather statistics of shapes in the image?
 Let's look into an example from the computer vision (CV) and the natural language processing domain (NLP):
 
@@ -44,7 +44,7 @@ def color_histogram_feature_vector(image, bins=(8, 8, 8)):
     # Convert the image to the HSV color space
     hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
     # Compute the color histogram
-    hist = cv2.calcHist([hsv], [0, 1, 2], None, bins, [0, 256, 0, 256, 0, 256])
+    hist = cv2.calcHist([hsv], [0, 1, 2], None, bins, [0, 180, 0, 256, 0, 256])
     # Normalize the histogram
     hist = cv2.normalize(hist, hist).flatten()
     return hist
@@ -93,7 +93,7 @@ The result is a matrix where each row corresponds to a document and each column 
 
 ## Learned Embeddings
 
-Designing feature vectors is an enourmous challenge, but how about we also leave this job 
+Designing feature vectors is an enormous challenge, but how about we also leave this job 
 to the machine itself and learn how to extract features. When we learn how to extract features from data, the term *embedding* is more
 common to be used. We will learn later on how these embeddings are learned, let's rather jump into some examples showing how to use them.
 
@@ -131,11 +131,11 @@ print(f"Embedding vector shape: {embedding_vector.shape}")
 print(f"Embedding vector: {embedding_vector[:10]}...")  # Print first 10 elements for brevity
 ```
 
-The resulting embedding is a high-dimensional vector representing related to the semantic meaning of the text.
+The resulting embedding is a high-dimensional vector related to the semantic meaning of the text.
 
-### CV Example: Using CLIP Model to Obtain Text Embeddings
+### CV Example: Using CLIP Model to Obtain Image Embeddings
 
-The most important aspects of CLIP is that it offers computing image embeddings in addition and we just have to 
+The most important aspect of CLIP is that it also offers computing image embeddings and we just have to 
 add the following function:
 
 ```python
@@ -154,8 +154,8 @@ def get_image_embedding(image_path):
     return outputs[0].cpu().numpy().flatten()
 ```
 
-This is even not the end of the story: in CLIP, text and image share the same embedding space. If an image $$I$$ is semantically close to a text $$T$$,
-their embeddings will have a close distance. This offers an enourmous potential for fast algorithm development, something that you might have even used beforehand.
+This is not even the end of the story: in CLIP, text and image share the same embedding space. If an image $$I$$ is semantically close to a text $$T$$,
+their embeddings will have a close distance. This offers an enormous potential for fast algorithm development, something that you might have even used beforehand.
 
 ## Further reading
 

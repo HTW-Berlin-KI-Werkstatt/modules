@@ -13,7 +13,7 @@ Large Language Models (LLMs) have significantly advanced the field of natural la
 
 Large Language Models are deep learning models trained on vast amounts of textual data. Their primary function is to predict the next word in a sequence, effectively generating coherent and contextually relevant text. This predictive capability allows them to perform tasks such as translation, summarization, question-answering, and even creative writing (depending on your expectation :)).
 
-There is a again a great introductory video of 3blue1brown on this topic and I highly recommend watching it as a perfect starter:
+There is again a great introductory video of 3blue1brown on this topic and I highly recommend watching it as a perfect starter:
 <iframe width="420" height="315" src="https://www.youtube.com/embed/LPZh9BOjkQs" frameborder="0"> </iframe>
 
 ### Pretraining by Next-Word-Prediction
@@ -60,6 +60,6 @@ There is also a great game called [Semantris](https://research.google.com/semant
 
 We only briefly touched the tip of the iceberg, however, we can already derive some challenges:
 
-1. There is no fact-checking - since the model just learns likely future text passages from training data, we can not gurantee any facts. Even if the training data is clean and fact-proven, there is no gurantee for the correctness of the predicted text.
-2. We again learn from data and all biases that are present in the data will be part of the model as well. Since pre-training is based on heaps of text data gathered from the internet there is no sophisticated curation process possible to clean it up. The only choice left are subsequent training runs with human feedback to *unlearn* biases. However, there is also no gurantee that this works to 100%.
+1. There is no fact-checking - since the model just learns likely future text passages from training data, we can not guarantee any facts. Even if the training data is clean and fact-proven, there is no guarantee for the correctness of the predicted text.
+2. We again learn from data and all biases that are present in the data will be part of the model as well. Since pre-training is based on heaps of text data gathered from the internet there is no sophisticated curation process possible to clean it up. The only choice left are subsequent training runs with human feedback to *unlearn* biases. However, there is also no guarantee that this works to 100%.
 3. There is currently an ongoing debate, whether we already reached an upper limit with pure text data for pre-training ([Talk of Ilya Sutskever, NeurIPS 2024 - starting from 7m](https://www.youtube.com/watch?v=WQQdd6qGxNs))

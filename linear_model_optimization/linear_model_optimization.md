@@ -11,7 +11,7 @@ We have seen how linear models work and how to define loss functions on the trai
 to find the models parameters. However, we still do not know how to minimize loss functions.
 In essence, we need to identify the optimal values for the weights and biases that minimize the loss function. 
 How do we find optimal values? Sure, let's try the method we learned in school and set the derivative to zero.
-The problem here is: our function $$L$$ does not only depend on a single variable, but on multiple ones - the weights and the biases. Therefore, let's learn something about partial deriviatives first.
+The problem here is: our function $$L$$ does not only depend on a single variable, but on multiple ones - the weights and the biases. Therefore, let's learn something about partial derivatives first.
 
 
 ## Introduction to Partial Derivatives
@@ -31,7 +31,7 @@ $$
 $$
 
 So basically, it is just about fixing all remaining parameters and computing the derivative for a single
-variable. Computing all deriviatives gives us the so called gradient vector:
+variable. Computing all derivatives gives us the so called gradient vector:
 
 The gradient vector of a scalar function $$ f(x, y) $$ is denoted by the nabla symbol $$ \nabla $$ and is defined as the vector of its partial derivatives:
 
@@ -39,7 +39,7 @@ $$
 \nabla f = \left( \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y} \right)
 $$
 
-More general, for a function $$ f: \mathbb{R}^n \to \mathbb{R} $$, the gradient is:
+More generally, for a function $$ f: \mathbb{R}^n \to \mathbb{R} $$, the gradient is:
 
 $$
 \nabla f = \begin{bmatrix} \frac{\partial f}{\partial x_1} \\ \frac{\partial f}{\partial x_2} \\ \vdots \\ \frac{\partial f}{\partial x_n} \end{bmatrix}
@@ -81,7 +81,7 @@ To find the optimal values for $$ \mathbf{w} $$ and $$ b $$, we utilize an analy
 
    - Weight vector $$ \mathbf{w} $$ equation:
      $$
-     \sum_{i=1}^{N} (y_i - (\mathbf{w}^T \mathbf{x}^{(i)} + b)) \mathbf{x}_i = 0
+     \sum_{i=1}^{N} (y_i - (\mathbf{w}^T \mathbf{x}^{(i)} + b)) \mathbf{x}^{(i)} = 0
      $$
 
    - Bias term $$ b $$ equation:

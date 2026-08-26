@@ -23,7 +23,7 @@ your current competencies.
 ## 2. Importance of Randomness and Repetitions
 
 Another important aspect of evaluation is to design an evaluation that is robust with respect to the selection of training and test data.
-Your selection of the training data from the overall dataset might be biased and your estimate of the performance of the model is skewed since you should
+Your selection of the training data from the overall dataset might be biased and your estimate of the performance of the model is skewed since you might have
 by chance selected a non-representative part of the data for training. 
 
 Therefore, two aspects need to be included for evaluation:
@@ -39,7 +39,7 @@ Let's look at some evaluation and especially splitting techniques to deal with t
 Cross-validation is a robust technique for assessing the performance of a machine learning model. The most common form is k-fold cross-validation:
 - **k-Fold Cross-Validation:** The dataset is split into $$k$$ equal parts. The model is trained on $$k-1$$ parts and tested on the remaining part. This process repeats $$k$$ times, with each part being used exactly once as the test set. The final performance metric is the average of the results from all `k` iterations.
 
-The following code snipplet which skips some parts such as data loading shows how to do $$k$$-fold cross-validation in python:
+The following code snippet which skips some parts such as data loading shows how to do $$k$$-fold cross-validation in python:
 ```python
 from sklearn.model_selection import KFold, cross_val_score
 model = SomeModel()
@@ -76,7 +76,7 @@ splitting strategies.
 ## 4. Metrics for Regression
 
 So far we talked about evaluation strategies (just covered the tip of the iceberg here), but how do we actually compare
-our prediction $$y_i$$ (for each test example with index $$1 \leq i \leq n$$) with the ground-truth labels $$\hat{y}_i$$?
+our prediction $$\hat{y}_i$$ (for each test example with index $$1 \leq i \leq n$$) with the ground-truth labels $$y_i$$?
 This depends on many aspects, first of all let's focus on regression tasks where $$y$$ is a continuous value.
 
 ### 4.1 Mean Absolute Error (MAE)
@@ -112,7 +112,7 @@ root of the MSE, but has the same unit as the input value and therefore is easie
 
 Let $$\bar{y}$$ be the mean of the ground-truth values (across the test set), then we can compute the so-called $$R$$ square metric:
 
-$$R^2 = 1 - \frac{\sum_{i=1}^{n} (\hat{y}_i - y_i)^2}{\sum_{i=1}^{n} (\hat{y}_i - \bar{y})^2}$$
+$$R^2 = 1 - \frac{\sum_{i=1}^{n} (\hat{y}_i - y_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}$$
 
 The denominator should look familiar: it is the variance of the labels without normalizing it wrt. to the number of test examples.
 This measure normalizes the overall MSE error with the variance of the ground-truth labels. In which situations do you think this is reasonable?
@@ -176,7 +176,7 @@ This naturally applies to scenarios with $$K>2$$ as well.
 
 **Cons:**
 - Misleading for imbalanced datasets as it may give high accuracy by simply predicting the majority class: Assume we have a test set that consists of 990 images without a pedestrian and
-10 images with a pedestrian. A model simply predicting "no predestrian" would get a 99% accuracy. Time to raise some venture capital 😄.
+10 images with a pedestrian. A model simply predicting "no pedestrian" would get a 99% accuracy. Time to raise some venture capital 😄.
 
 #### Recall (alternative name: Sensitivity)
 
@@ -242,12 +242,12 @@ recall = recall_score(y_true, y_pred)
 f1 = f1_score(y_true, y_pred)
 ```
 
-### ⭐Receiver Operator Characterics
+### ⭐Receiver Operating Characteristic
 
 The **Receiver Operating Characteristic (ROC) Curve** is a graphical plot used to evaluate the performance of a binary classification model that not only provides discrete decisions but also a continuous value (score) related to the likelihood of an example being positive. 
 To get to a discrete decision, the score of such a model is thresholded, e.g. if the score is above $$T=0.5$$, the example is considered to be predicted as positive. 
 However, we could of course choose another threshold resulting in different decisions. A higher threshold $$T$$ obviously results
-in a equal or smaller number of false positives. In some cases, we rather make careful decisions and only consider the example to be positive, if the score
+in an equal or smaller number of false positives. In some cases, we rather make careful decisions and only consider the example to be positive, if the score
 is really high. True positive rate and false positive rate therefore depend on $$T$$, and a ROC curve simply plots $$(\text{FPR}(T), \text{TPR}(T))$$.
 
 ![ROC curve](img/roc.webp)

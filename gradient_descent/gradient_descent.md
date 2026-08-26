@@ -58,7 +58,7 @@ $$
 ## Applying Gradient Descent to Loss Functions
 
 Let's minimize this loss function by gradient descent, which iteratively updates model parameters by moving them in the negative direction of the gradient.
-We bascially need the derivatives of the loss function:
+We basically need the derivatives of the loss function:
 
 $$
 \begin{align}
@@ -79,8 +79,8 @@ $$
 w^{(t+1)}_j = w^{(t)}_j - \gamma \frac{\partial \ell}{\partial w_j} (y_i, f(\mathbf{x}^{(i)}; \mathbf{w}))
 $$
 
-SGD therefore can be seen as an approximation of gradient descent, since it **approximates** the real gradient, which is **the average of all individual loss gradients with a single random example**.
-The advantage of SGD includes faster iterations and often better convergence properties due to its noisy updates that can escape local minima. However it can be also extremely instable.
+SGD can therefore be seen as an approximation of gradient descent: the real gradient (**the average of all individual loss gradients**) is **approximated with the gradient of a single random example**.
+The advantage of SGD includes faster iterations and often better convergence properties due to its noisy updates that can escape local minima. However it can be also extremely unstable.
 
 Let's look at some implementation for a linear regression example:
 
@@ -155,7 +155,7 @@ for epoch in range(num_epochs):
         optimizer.zero_grad()  # Clear gradients from previous iteration
 
         output = model(X[i].view(1, -1))  # Make prediction
-        loss = criterion(output, y[i].view(-1))  # Calculate loss
+        loss = criterion(output, y[i].view(1, -1))  # Calculate loss
         
         loss.backward()  # Compute gradients
         optimizer.step()  # Update weights
@@ -175,7 +175,7 @@ Ok, there is quite a lot to comprehend, here are some hints to might help you:
 
 ## Mini-Batch Gradient Descent in pytorch
 
-I guess you can imagine that SGD with a single example is very instable in a lot of cases.
+I guess you can imagine that SGD with a single example is very unstable in a lot of cases.
 What can you expect when you approximate an average of samples with a random sample?
 A straightforward idea is to use small groups of examples, so called batches.
 By processing small groups of samples, we achieve a compromise between speed and stability.
@@ -205,5 +205,5 @@ for epoch in range(num_epochs):
 print("Model Parameters after Mini-Batch Gradient Descent:", list(model.parameters()))
 ```
 
-Mini-Batch SGD (often just referred to SGD) is also very benefial when there is a memory
-limit during the optimization. You could simple choose a batch size that allows the training examples that have been randomly chosen in an iteration to fit into the GPU memory - including their immediate tensors and gradients.
+Mini-Batch SGD (often just referred to SGD) is also very beneficial when there is a memory
+limit during the optimization. You could simply choose a batch size that allows the training examples that have been randomly chosen in an iteration to fit into the GPU memory - including their intermediate tensors and gradients.

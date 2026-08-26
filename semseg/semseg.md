@@ -9,12 +9,12 @@ classes: wide
 
 Image segmentation is a fundamental task in computer vision, aiming to classify each pixel of an image to identify structures or objects. Unlike object detection, which provides bounding boxes for objects, image segmentation requires finer granularity by labeling each pixel with its belonging class.
 
-## Standard architecture: UNET
+## Standard architecture: U-Net
 
-UNET ([Ronneberger et al., 2015](https://arxiv.org/abs/1505.04597)) was originally specifically designed for biomedical image segmentation, but it is an established standard for semantic segmentation in general. It addresses tasks where precise localization is crucial by transforming input images into pixel-level masks efficiently.
+U-Net ([Ronneberger et al., 2015](https://arxiv.org/abs/1505.04597)) was originally specifically designed for biomedical image segmentation, but it is an established standard for semantic segmentation in general. It addresses tasks where precise localization is crucial by transforming input images into pixel-level masks efficiently.
 
 Key features are:
-- **Symmetrical Architecture**: The UNET employs a U-shaped structure comprising both contracting and expanding paths, allowing it to precisely capture context while maintaining spatial detail.
+- **Symmetrical Architecture**: The U-Net employs a U-shaped structure comprising both contracting and expanding paths, allowing it to precisely capture context while maintaining spatial detail.
 - **Encoder (Contracting Path)**: This path involves multiple convolutional layers followed by pooling operations, progressively downsampling the feature maps to extract high-level spatial information.
 - **Decoder (Expanding Path)**: Through upsampling using transposed convolutions, this path reconstructs the image dimensions. Skip connections from the encoder ensure detailed spatial recovery.
 - **Skip Connections**: These connections bridge corresponding layers of encoder and decoder, combining coarse semantic knowledge with fine-grained features. This enables robust, pixel-accurate segmentations by preserving original image data.
@@ -23,7 +23,7 @@ For each pixel, the model predicts the probability of belonging to a specific cl
 
 ### Training and related loss functions
 
-Training the UNET model involves minimizing a loss function that captures both class membership accuracy and spatial coherence within predicted masks.
+Training the U-Net model involves minimizing a loss function that captures both class membership accuracy and spatial coherence within predicted masks.
 
 1. **Cross Entropy Loss**:
    - Measures classification errors at the pixel level, treating each pixel as an independent class prediction.
@@ -36,9 +36,9 @@ Training the UNET model involves minimizing a loss function that captures both c
 Combinations of these losses can be employed, with weights adjusted based on dataset characteristics and task objectives.
 Hyperparameters such as learning rate and batch size significantly influence convergence behavior and final model performance.
 
-## Alternatives to the UNET architecture
+## Alternatives to the U-Net architecture
 
-While UNET remains popular for its simplicity and effectiveness, alternative architectures have emerged offering potential improvements:
+While U-Net remains popular for its simplicity and effectiveness, alternative architectures have emerged offering potential improvements:
 
 1. **Fully Convolutional Networks (FCNs)**:
    - **Approach**: Extends traditional CNNs to enable dense predictions on full-sized images.
@@ -51,9 +51,9 @@ While UNET remains popular for its simplicity and effectiveness, alternative arc
 
 
 
-## Code Example: Training a UNET for Image Segmentation
+## Code Example: Training a U-Net for Image Segmentation
 
-Below is a simple example of how to implement and train a UNET model for image segmentation using TensorFlow and Keras:
+Below is a simple example of how to implement and train a U-Net model for image segmentation using TensorFlow and Keras:
 
 Import Required Libraries:
 ```python
@@ -63,7 +63,7 @@ from tensorflow.keras.layers import concatenate, Input, Dropout
 from tensorflow.keras.models import Model
 ```
 
-Build the UNET Model:
+Build the U-Net Model:
 ```python
 def unet_model(input_size=(128, 128, 3)):
     inputs = Input(input_size)
@@ -117,10 +117,10 @@ y_train = np.random.randint(0, 2, (10, 128, 128, 1))
 model.fit(X_train, y_train, epochs=5, batch_size=2)
 ```
 
-This code snippet constructs a basic UNET architecture suitable for binary image segmentation tasks. Note that actual datasets should replace the dummy data, and hyperparameters might need tuning based on specific use cases.
+This code snippet constructs a basic U-Net architecture suitable for binary image segmentation tasks. Note that actual datasets should replace the dummy data, and hyperparameters might need tuning based on specific use cases.
 Feel free to tweak and expand this code for more complex datasets and training regimes!
 
 ## Further resources
 
-1. Comprehensive overview on UNET architecture: [Uni Freiburg / Olaf Ronneberger](https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/)
-2. Advanced image segmentation tutorial using PyTorch: [Pytorch Tutorial](https://pytorch.org/tutorials/intermediate/torchvision_tutorial.html)
+1. Comprehensive overview on U-Net architecture: [Uni Freiburg / Olaf Ronneberger](https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/)
+2. Instance segmentation (Mask R-CNN) tutorial using PyTorch: [Pytorch Tutorial](https://pytorch.org/tutorials/intermediate/torchvision_tutorial.html)

@@ -46,7 +46,7 @@ A convolution uses a mask or filter given as a matrix (here $$3 \times 3$$):
 [1, 0, -1]
 ```
 
-Now imagine you slide the mask across the input image and at each step you multiple the mask
+Now imagine you slide the mask across the input image and at each step you multiply the mask
 with the respective region of the image and sum up all the values. The sum is then the new value of the center pixel. All of these values lead to a new matrix, which is the result of the convolution.
 
 1. **Top-left position:**  
@@ -111,11 +111,9 @@ Various architectures have been developed to optimize CNN performance for specif
 
 4. **GoogLeNet (Inception)**: This architecture uses "Inception modules" which allow the network to consider different filter sizes within a single layer, improving both feature extraction and computational efficiency.
 
-5. **ResNet (Residual Networks)**: Introduces skip connections, or residual blocks, which tackles the vanishing gradient problem, allowing training of very deep networks (e.g., hundreds of layers).
+5. **ResNet (Residual Networks)**: Introduces skip connections, or residual blocks, which tackle the vanishing gradient problem, allowing training of very deep networks (e.g., hundreds of layers).
 
 ## Classification Using CNNs
-
-After several convolutional and pooling operations, CNNs transition to fully connected layers, similar to traditional neural networks.
 
 A common loss function for classification is Softmax Cross-Entropy. In this setting, the softmax function converts logits (raw model outputs) into probabilities, and cross-entropy measures the difference between predicted probabilities and true labels. We have seen this concept already in a previous lecture.
 

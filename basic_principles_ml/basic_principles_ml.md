@@ -18,7 +18,7 @@ of the training set are most of the time provided by human annotators.
 
 ![](img/mnist.png)
 
-The image shows a part of the famous [MNIST](https://en.wikipedia.org/wiki/MNIST_database) dataset for letter recognition. Each of the images displayed is labeled
+The image shows a part of the famous [MNIST](https://en.wikipedia.org/wiki/MNIST_database) dataset for digit recognition. Each of the images displayed is labeled
 according to the number shown in the image. Labeling, often also referred to as annotation, can be an expensive and hideous task. 
 
 With these datasets, the goal is to learn a mapping, often referred to as a model, from inputs $$\mathbf{x}$$ to outputs $$y$$ that can be used to make predictions on new, unseen data. In our MNIST example case, an input 

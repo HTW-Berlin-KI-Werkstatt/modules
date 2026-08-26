@@ -13,7 +13,7 @@ classes: wide
 
 **Machine learning (ML)** is often seen as a subset of **artificial intelligence (AI)** that focuses on the development of algorithms and statistical models that enable computers to perform specific tasks without using explicit instructions. Instead, these systems build a model based on *training* data to make predictions or decisions without being programmed to perform the task.
 
-The current advances contributed to the field of AI are all based on ML. Therefore, people often mix these terms. This is critical, since AI often suggests something magical close to the human brain, which is not the case.
+The recent advances in AI are all based on ML. Therefore, people often mix these terms. This is critical, since AI often suggests something magical close to the human brain, which is not the case.
 
 A further sub-part of machine learning is **deep learning**. However, the difference between classical machine learning and deep learning is even more fuzzy and we come to this later.
 
@@ -24,8 +24,8 @@ Advice: use the term machine learning for technical communications (talking abou
 
 
 Machine learning is broadly categorized into three types:
-- **Supervised Learning:** The algorithm learns from labeled training data, i.e. data that not only includes inputs but also expected outputs (often referred to as labels or annotations) provided by human annotator. Nearly all of the ML applications nowadays rely on supervised learning.
-- **Unsupervised Learning:** The algorithm is given data without provided labels. The model needs to infer the tasks from the data structure alone. Unsupervised learning is often used in a early phase to detect interesting aspects of the data or help the annotation process.
+- **Supervised Learning:** The algorithm learns from labeled training data, i.e. data that not only includes inputs but also expected outputs (often referred to as labels or annotations) provided by a human annotator. Nearly all of the ML applications nowadays rely on supervised learning.
+- **Unsupervised Learning:** The algorithm is given data without provided labels. The model needs to infer the tasks from the data structure alone. Unsupervised learning is often used in an early phase to detect interesting aspects of the data or help the annotation process.
 - **Reinforcement Learning:** The algorithm learns by interacting with its environment and receiving rewards for performing actions that lead to positive outcomes.
 
 In our lecture, we will mainly focus on supervised learning, since this has resulted in all the amazing applications we have seen in the last years. It is also the method of choice, once you have suitable training data acquired (which is already 90% of the job). Unsupervised learning techniques can be used for clustering your data and exploring datasets - an important step before annotation and labeling. Reinforcement learning is especially important for robotics for e.g. learning action plans for controlling the robot based on current and past observation. This field would require a whole lecture module itself to allow for a deep dive.

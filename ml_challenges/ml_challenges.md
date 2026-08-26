@@ -21,7 +21,7 @@ But wait, we just learned another term: **generalization**. In machine learning,
 just memorize training data, we want the model to generalize, i.e., to deal with new examples that are from the same distribution as the training data but not exactly identical. 
 
 Secondly, the dataset must be **comprehensive enough to capture all relevant information** related to the specific task, including any nuances and subtleties that could impact the outcome.
-If there is no information in input $$\mathbf{x}$$, there is no information in input $$\mathbf{x}$$. A machine learning model will not be able to magically squeeze out information
+If there is no information about the output in the input $$\mathbf{x}$$, there is no way to get it out of $$\mathbf{x}$$. A machine learning model will not be able to magically squeeze out information
 from the examples that are not present (under the assumption that the model does not have access to other information sources or assumptions).
 
 ## Overfitting

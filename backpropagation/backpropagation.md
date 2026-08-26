@@ -51,6 +51,6 @@ recursively computing derivatives. There is again a great video by 3blue1brown:
 
 <iframe width="420" height="315" src="https://www.youtube.com/embed/tIeHLnjs5U8" frameborder="0"> </iframe>
 
-Another great piece of tutorial is this [video](https://www.youtube.com/watch?v=VMj-3S1tku0) of Andrey Karpathy, were he shows
-how to develop ``micrograd`` - a small library for automatic differentation with a similar interface as ``pytorch``. This is just a single video in a whole series, which I can highly recommend. Furthermore, there is also a larger blog article about the topic
+Another great piece of tutorial is this [video](https://www.youtube.com/watch?v=VMj-3S1tku0) of Andrej Karpathy, where he shows
+how to develop ``micrograd`` - a small library for automatic differentiation with a similar interface as ``pytorch``. This is just a single video in a whole series, which I can highly recommend. Furthermore, there is also a larger blog article about the topic
 from the same author: [Hackers guide to neural networks](https://karpathy.github.io/neuralnets/).

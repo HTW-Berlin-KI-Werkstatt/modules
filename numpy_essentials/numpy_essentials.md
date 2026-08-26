@@ -8,7 +8,7 @@ classes: wide
 ---
 
 NumPy is a fundamental package for scientific computing in Python. It provides support for arrays, matrices, and many mathematical functions to operate on these data structures efficiently. 
-The following code examples assume that you have python running in an virtual environment with ``numpy``, ``scikit-learn``, and ``matplotlib`` installed.
+The following code examples assume that you have python running in a virtual environment with ``numpy``, ``scikit-learn``, and ``matplotlib`` installed.
 
 The following examples are of course just the tiny fraction of the top 0.1% of the tip of an iceberg. You need to learn about further functions yourself on the fly during the lecture.
 
@@ -28,13 +28,13 @@ print("Mean:", np.mean(array))
 print("Standard Deviation:", np.std(array))
 ```
 
-The type ``np.array`` is the standard data type of numpy for vectors, matrices, and tensors (more than 2 indices).
+The type ``np.ndarray`` (created with ``np.array``) is the standard data type of numpy for vectors, matrices, and tensors (more than 2 indices).
 The object ``array`` has a certain shape:
 ```python
 array.shape # returns (5,)
 ```
 in our case it has 1 axis (1 index used to identify elements) with 5 dimensions (index ranges from 0 to 4).
-All the operations above (sum, mean, std) can be also restricted to certain axis, for example, if you want to compute the mean of each column in one operation.
+All the operations above (sum, mean, std) can be also restricted to certain axes, for example, if you want to compute the mean of each column in one operation.
 
 It takes some time to get used to addressing the right elements in numpy arrays and optimizing the code with *vectorization*, i.e. addressing and
 operating with multiple elements at once.

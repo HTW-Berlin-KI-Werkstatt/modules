@@ -42,14 +42,14 @@ Imagine using VGGNet, pre-trained on ImageNet (a dataset with 1,000 classes), to
 Another strategy to use a pre-trained model is to use it as a feature extractor. We can simply cut the model
 at a certain layer $$L$$ and use the output of the model at this layer as a feature vector (often called *learned embedding*).
 For our task, we can then simply utilize whatever machine learning model we like to train it on our data.
-We have seen this strategy in [our lecture on feature vectos](/modules/featurevectors/featurevectors.md).
+We have seen this strategy in [our lecture on feature vectors](/modules/featurevectors/featurevectors.md).
 
-If a linear model is applied on the learned embeddings, this approach is sometimes refered to as *linear probing*. In this case, it is a special form of fine-tuning. Where all layers up to $$L$$ are hold fixed and all other layers are replaced with a linear model as the only unfrozen layer to be used.
+If a linear model is applied on the learned embeddings, this approach is sometimes referred to as *linear probing*. In this case, it is a special form of fine-tuning. Where all layers up to $$L$$ are held fixed and all other layers are replaced with a linear model as the only unfrozen layer to be used.
 
 ## Foundation Models
 
-Foundation models represent a paradigm shift in AI, capable of generalizing across diverse tasks. These models serve as a comprehensive starting point for solving various downstream tasks through minimal fine-tuning or prompting. The later
-technique is something than we will learn in upcoming lectures.
+Foundation models represent a paradigm shift in AI, capable of generalizing across diverse tasks. These models serve as a comprehensive starting point for solving various downstream tasks through minimal fine-tuning or prompting. The latter
+technique is something that we will learn in upcoming lectures.
 
 Foundation models have the following characteristics:
 

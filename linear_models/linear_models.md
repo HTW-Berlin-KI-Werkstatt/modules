@@ -40,7 +40,7 @@ Why are we not using a simple difference between the predicted and the ground-tr
 
 The functions like $$L$$ are also known as **loss functions** in machine learning, they
 express the error made on a training set by a model. Reducing the error by changing the parameters
-of the model appropiately is the goal of the training. 
+of the model appropriately is the goal of the training. 
 
 #### Why Linear Models?
 

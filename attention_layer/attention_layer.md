@@ -14,10 +14,10 @@ This lecture will be solely about transforming a sequence of embedding vectors i
 There is again a great video of 3blue1brown with lots of visualizations:
 <iframe width="480" height="270" src="https://www.youtube.com/embed/eMlx5fFNoYc" frameborder="0"> </iframe>
 
-Building a GPT-style model from scratch is presented by Andrey Karpathy in this video (great to watch):
+Building a GPT-style model from scratch is presented by Andrej Karpathy in this video (great to watch):
 <iframe width="480" height="270" src="https://www.youtube.com/embed/kCc8FmEb1nY" frameborder="0"> </iframe>
 
-## What is a attention and why it is relevant?
+## What is attention and why is it relevant?
 
 Our language does highly depend on context. For example, if I speak about a model here in my lecture, it is obvious due to the context within the sentence (or paragraph) that I am not referring to model as a profession in the fashion industry but to a model related to machine learning. We have already learned that a suitable representation of text
 is a sequence of tokens represented as (embedding) vectors. Embeddings can be learned (or assigned), but the meaning (and therefore the embedding) of each word (token) depends on context - so how can we incorporate
@@ -59,11 +59,11 @@ with $$\mathbf{q}_i$$ and $$\mathbf{k}_j$$ being the i'th and j'th column vector
 - $$ d_k $$ is again the dimension of the key and query vectors, used to scale the scores.
 - The softmax function normalizes all attention scores to ensure they add up to 1, making them interpretable as probabilities.
 
-The scaled dot-product attention layer has no free parameters, however, each element of the input sequence is projected with fully connected layers to keys, queries and values. The parameters of these projections are the free parameters we can optimize later on in our architecture. The network therefore learns how to transform the inputs to the right keys and queries that allow determining proper attention scores and to proper keys that can be used later on.
+The scaled dot-product attention layer has no free parameters, however, each element of the input sequence is projected with fully connected layers to keys, queries and values. The parameters of these projections are the free parameters we can optimize later on in our architecture. The network therefore learns how to transform the inputs to the right keys and queries that allow determining proper attention scores and to proper values that can be used later on.
 
 ## Python Implementation Example
 
-Let's look at a simple numpy code example that demonstrates dot-product attention in Python using `torch` - please note that this example does not include the projections before scaled dot-product attention:
+Let's look at a simple code example that demonstrates dot-product attention using `torch` - please note that this example does not include the projections before scaled dot-product attention:
 
 ```python
 import torch
