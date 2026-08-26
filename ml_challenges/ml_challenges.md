@@ -39,7 +39,7 @@ the given slides and memorized only code snippets from the lecture, you would no
   - Model complexity (too many parameters).
   - Insufficient training data.
 - **Solutions** (we will come to this later):
-  - Use simpler models or fine-tuning.
+  - Use simpler models, early stopping, or start from a pre-trained model (fine-tuning, see later).
   - Apply regularization techniques.
   - Gather more diverse training data.
 
@@ -61,6 +61,8 @@ to Western cultures, etc. (see the long list of publications about the topic [he
   - Perform thorough exploratory data analysis (EDA).
 
 ### Data bias explained in terms of probabilities
+
+Strictly speaking, the following example is about *class imbalance*; it becomes a bias if the class proportions in the training data differ from the proportions the model will encounter in deployment.
 
 Consider a binary classification problem where $$y$$ is the label, which can be either 0 or 1, and $$\mathbf{x}$$ is the input. 
 Let's assume we are building a model to classify whether an email is spam ($$y = 1$$) or not spam ($$y = 0$$).

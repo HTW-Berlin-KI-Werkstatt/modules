@@ -95,7 +95,7 @@ Please note the wonderful application of vectorization when providing the data t
 
 1. Learn how to generate random matrices of arbitrary shape with ``np.random.rand`` and ``np.random.randn``!
 2. What are other datasets available in scikit-learn?
-3. Learn how to do matrix multiplications with ``np.dot``!
+3. Learn how to do matrix multiplications with the ``@`` operator (or ``np.matmul``)!
 4. Enjoy the multi-index magic of numpy with statements like ``data[target==0, 0]``!
 
 ## Conclusions

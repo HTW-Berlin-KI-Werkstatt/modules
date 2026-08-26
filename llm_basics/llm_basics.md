@@ -35,6 +35,30 @@ In LLMs, text data is represented through **tokenization**, which breaks down te
 Tokens enable the model to process input data efficiently by converting it into a structured format suitable for computation. There is a current line of research that investigates models that skip tokenization and directly 
 operate on byte level.
 
+## From tokens to vectors: token embeddings
+
+A token id is just an integer and carries no meaning by itself. Therefore, each token id is mapped to a vector, the **token embedding**, by a simple lookup table
+with one row per token in the vocabulary. In ``torch``, this table is the ``nn.Embedding`` layer:
+
+```python
+import torch
+import torch.nn as nn
+
+vocab_size = 10000      # number of different tokens
+embed_dim = 64          # dimension of each token embedding
+
+embedding = nn.Embedding(vocab_size, embed_dim)
+
+# a "sentence" given as a sequence of 5 token ids
+token_ids = torch.tensor([42, 17, 9000, 3, 17])
+vectors = embedding(token_ids)
+print(vectors.shape)    # torch.Size([5, 64])
+```
+
+The rows of this table are parameters of the model and are learned jointly with all other parameters during training - the model itself
+decides which vectors are useful for predicting the next token. The result has the same flavor as the learned embeddings we
+have seen in [our lecture on feature vectors](/modules/featurevectors/featurevectors.md): tokens with a similar meaning end up with similar vectors.
+
 
 
 ## Applications of Large Language Models

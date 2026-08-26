@@ -54,7 +54,7 @@ $$
 \nabla f = \begin{bmatrix} 6x + 2y \\ 2x + 2y \end{bmatrix}
 $$
 
-To find the optimal value of a function, we therefore set the gradient vector to zero.
+To find the optimal value of a function, we therefore set the gradient vector to zero. This gives us a *stationary point* (a necessary condition for a minimum); for our squared-error loss, which is convex, this stationary point is indeed the minimum.
 
 ### Linear Model Optimization
 

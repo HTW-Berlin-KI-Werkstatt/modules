@@ -19,6 +19,8 @@ take the image directly without computing features beforehand, require the follo
 and $$ W $$ is width.
 - RGB images appear as $$(H, W, 3)$$, reflecting three color channels (Red, Green, Blue).
 
+The order of the axes is a convention of the framework: PyTorch stores the channels first, i.e. image tensors have the shape $$(C, H, W)$$.
+
 ## Convolutions
 
 Convolutions are the heart of CNNs, designed to automatically detect patterns in input data using filters, known also as kernels.

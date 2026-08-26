@@ -31,7 +31,7 @@ This choice of sine and cosine functions with varying frequencies enables the mo
 
 But why is this positional encoding using sine and cosine functions?
 
-1. **Non-Linearity:** They introduce useful non-linearity and periodicity that help capture sequential patterns.
+1. **Relative Positions:** For any fixed offset $$k$$, $$\mathbf{PE}_{\text{pos}+k}$$ is a linear function (a rotation) of $$\mathbf{PE}_{\text{pos}}$$, which makes it easy for the model to express relative positions. Furthermore, the values are bounded and the encoding extends to sequence lengths not seen during training.
 2. **Smoothness & Differentiability:** These functions provide smooth gradients, aiding in optimization during training.
 3. **Ease of Computation:** Easy calculation of positional differences without learned parameters, maintaining consistency across positional dimensions.
 

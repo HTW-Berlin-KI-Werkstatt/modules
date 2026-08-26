@@ -155,7 +155,7 @@ The confusion matrix can be represented in a tabular format:
 | Actual Positive| TP                 | FN                 |
 | Actual Negative| FP                 | TN                 |
 
-and allows to derive many different metrics explained in the following.
+and allows to derive many different metrics explained in the following. Please note that ``confusion_matrix`` in scikit-learn orders rows and columns by label value, i.e. with labels 0 (negative) and 1 (positive), TN appears in the top-left corner.
 
 In the following, we will go through several performance metrics for classification.
 There is also a great tutorial at [mlu-explain](https://mlu-explain.github.io/precision-recall/)
@@ -168,7 +168,7 @@ The most common metric that people use (and fail to use properly) is accuracy:
 $$\text{Accuracy} = \frac{\text{Number of correct predictions}}{\text{Total number of predictions}} = \frac{1}{n} \sum\limits_{i=1}^n [ \hat{y}_i = y_i ] = \frac{TP + TN}{TP + TN + FP + FN}$$
 
 What is the percentage of test examples with the correctly predicted label? In the formula above $$[ z ]$$ is 1 if $$z$$ is true and 0 otherwise.
-This naturally applies to scenarios with $$K>2$$ as well.
+The indicator form naturally applies to scenarios with $$K>2$$ as well, whereas the TP/TN version is only defined for binary problems.
 
 **Pros:**
 - Simple to understand and compute.
@@ -263,7 +263,7 @@ A great animated explanation for ROC curves can be also found at [mlu-explain](h
 - **Starting and end point**: A ROC curve always starts at $$(0,0)$$ (all decisions are negative) and ends with $$(1,1)$$ (all decisions are positive).
 - **Diagonal Line:** A ROC curve that lies on the diagonal line from the bottom-left to the top-right represents a random guess, indicating no discrimination capacity by the model.
 - **Above Diagonal Line:** The closer the ROC curve to the top-left corner, the better the model is at distinguishing between the two classes.
-- **Area Under the Curve (AUC):** The area under the ROC curve (AUC) quantifies the overall ability of the model to distinguish between positive and negative classes. An AUC value of 1 represents a perfect classifier, whereas an AUC value of 0.5 represents a worthless classifier.
+- **Area Under the Curve (AUC):** The area under the ROC curve (AUC) quantifies the overall ability of the model to distinguish between positive and negative classes. An AUC value of 1 represents a perfect classifier, whereas an AUC value of 0.5 represents a worthless classifier (an AUC below 0.5 indicates that the scores are systematically inverted).
 
 ### Example Code to Plot ROC Curve
 

@@ -53,68 +53,66 @@ While U-Net remains popular for its simplicity and effectiveness, alternative ar
 
 ## Code Example: Training a U-Net for Image Segmentation
 
-Below is a simple example of how to implement and train a U-Net model for image segmentation using TensorFlow and Keras:
+Below is a simple example of how to implement and train a small U-Net model for binary image segmentation using PyTorch:
 
-Import Required Libraries:
 ```python
-import tensorflow as tf
-from tensorflow.keras.layers import Conv2D, MaxPooling2D, Conv2DTranspose
-from tensorflow.keras.layers import concatenate, Input, Dropout
-from tensorflow.keras.models import Model
+import torch
+import torch.nn as nn
+
+
+def double_conv(in_channels, out_channels):
+    return nn.Sequential(
+        nn.Conv2d(in_channels, out_channels, kernel_size=3, padding=1),
+        nn.ReLU(inplace=True),
+        nn.Conv2d(out_channels, out_channels, kernel_size=3, padding=1),
+        nn.ReLU(inplace=True),
+    )
+
+
+class UNet(nn.Module):
+    def __init__(self, in_channels=3, num_classes=1):
+        super().__init__()
+        # Encoder (contracting path)
+        self.conv1 = double_conv(in_channels, 64)
+        self.conv2 = double_conv(64, 128)
+        self.pool = nn.MaxPool2d(2)
+        # Bottleneck
+        self.conv3 = double_conv(128, 256)
+        # Decoder (expanding path)
+        self.up4 = nn.ConvTranspose2d(256, 128, kernel_size=2, stride=2)
+        self.conv4 = double_conv(256, 128)   # 128 from up4 + 128 from the skip connection
+        self.up5 = nn.ConvTranspose2d(128, 64, kernel_size=2, stride=2)
+        self.conv5 = double_conv(128, 64)    # 64 from up5 + 64 from the skip connection
+        self.out = nn.Conv2d(64, num_classes, kernel_size=1)
+
+    def forward(self, x):
+        c1 = self.conv1(x)
+        c2 = self.conv2(self.pool(c1))
+        c3 = self.conv3(self.pool(c2))
+        u4 = self.conv4(torch.cat([self.up4(c3), c2], dim=1))  # skip connection
+        u5 = self.conv5(torch.cat([self.up5(u4), c1], dim=1))  # skip connection
+        return self.out(u5)  # logits, one channel per class
 ```
 
-Build the U-Net Model:
-```python
-def unet_model(input_size=(128, 128, 3)):
-    inputs = Input(input_size)
-
-    # Encoder
-    conv1 = Conv2D(64, 3, activation='relu', padding='same')(inputs)
-    conv1 = Conv2D(64, 3, activation='relu', padding='same')(conv1)
-    pool1 = MaxPooling2D(pool_size=(2, 2))(conv1)
-
-    conv2 = Conv2D(128, 3, activation='relu', padding='same')(pool1)
-    conv2 = Conv2D(128, 3, activation='relu', padding='same')(conv2)
-    pool2 = MaxPooling2D(pool_size=(2, 2))(conv2)
-
-    # Bottleneck
-    conv3 = Conv2D(256, 3, activation='relu', padding='same')(pool2)
-    conv3 = Conv2D(256, 3, activation='relu', padding='same')(conv3)
-    
-    # Decoder
-    up4 = Conv2DTranspose(128, (2, 2), strides=(2, 2), padding='same')(conv3)
-    merge4 = concatenate([up4, conv2], axis=3)
-    conv4 = Conv2D(128, 3, activation='relu', padding='same')(merge4)
-    conv4 = Conv2D(128, 3, activation='relu', padding='same')(conv4)
-
-    up5 = Conv2DTranspose(64, (2, 2), strides=(2, 2), padding='same')(conv4)
-    merge5 = concatenate([up5, conv1], axis=3)
-    conv5 = Conv2D(64, 3, activation='relu', padding='same')(merge5)
-    conv5 = Conv2D(64, 3, activation='relu', padding='same')(conv5)
-
-    outputs = Conv2D(1, 1, activation='sigmoid')(conv5)
-
-    model = Model(inputs=[inputs], outputs=[outputs])
-
-    return model
-```
-
-Compile and train the model
+Train the model on dummy data:
 
 ```python
-# Create an instance of the model
-model = unet_model()
+model = UNet()
+criterion = nn.BCEWithLogitsLoss()  # sigmoid + binary cross entropy on the pixel level
+optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
 
-# Compile the model
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+# Dummy data for illustration: 10 RGB images of size 128x128 with binary masks
+X_train = torch.rand(10, 3, 128, 128)
+y_train = torch.randint(0, 2, (10, 1, 128, 128)).float()
 
-# Dummy data for illustration
-import numpy as np
-X_train = np.random.rand(10, 128, 128, 3)
-y_train = np.random.randint(0, 2, (10, 128, 128, 1))
-
-# Train the model
-model.fit(X_train, y_train, epochs=5, batch_size=2)
+for epoch in range(5):
+    for i in range(0, len(X_train), 2):  # batch size 2
+        optimizer.zero_grad()
+        logits = model(X_train[i:i+2])
+        loss = criterion(logits, y_train[i:i+2])
+        loss.backward()
+        optimizer.step()
+    print(f"Epoch {epoch+1}, Loss: {loss.item():.4f}")
 ```
 
 This code snippet constructs a basic U-Net architecture suitable for binary image segmentation tasks. Note that actual datasets should replace the dummy data, and hyperparameters might need tuning based on specific use cases.

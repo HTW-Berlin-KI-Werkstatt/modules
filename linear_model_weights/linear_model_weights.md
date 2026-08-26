@@ -22,7 +22,7 @@ Let's list some of the key interpretations of the model:
 
 When features have vastly different magnitudes, above interpretation can lead to several pitfalls:
 
-1. **Scale Sensitivity**: Linear models are sensitive to the scale of features. Features with larger magnitudes may dominate the learning process, potentially overshadowing more informative features with smaller scales.
+1. **Scale Sensitivity**: For plain least squares, the predictions do not change when a feature is rescaled - only the corresponding weight is rescaled inversely. However, as soon as the parameters are optimized with gradient descent or regularization is used (see below), features with larger magnitudes may dominate the learning process, potentially overshadowing more informative features with smaller scales.
 
 2. **Interpretability Issues**: Directly comparing components of $$ \mathbf{w} $$ becomes challenging because the influence of a weight depends not only on its magnitude but also on the scale of the respective feature.
 

@@ -28,7 +28,7 @@ The squared error of the models is therefore characterized by the variance of $$
 respectively (please remember the definition of the variance here).
 
 Very importantly, we are not assuming $$f_1$$ and $$f_2$$ to be independent here!
-In contrast, their correlation is $$\rho$$. If you are asking yourself, what correlation really is, please go back and review your statistics basics! If $$\rho$$ is 0, both models are statistically independent. If $$\rho$$ is close to 1, both
+In contrast, their correlation is $$\rho$$. If you are asking yourself, what correlation really is, please go back and review your statistics basics! If $$\rho$$ is 0, both models are statistically independent (this holds since we assumed normally distributed errors). If $$\rho$$ is close to 1, both
 models are highly correlated, i.e. they agree with each other quite often.
 
 Let's get back to ensembles. An ensemble now combines predictions from multiple models.
@@ -95,7 +95,7 @@ accuracy = accuracy_score(y_test, y_pred)
 print(f"Bagging Test Accuracy: {accuracy:.4f}")
 ```
 
-Bagging for decision trees is often termed random forest [(Breiman 2001)](https://link.springer.com/article/10.1023/A:1010933404324). There is a great tutorial on random forests at [mlu-explain](https://mlu-explain.github.io/random-forest/).
+Bagging for decision trees is the basis of random forests [(Breiman 2001)](https://link.springer.com/article/10.1023/A:1010933404324), which additionally draw a random subset of features at each split. There is a great tutorial on random forests at [mlu-explain](https://mlu-explain.github.io/random-forest/).
 
 ### Boosting
 Boosting is an ensemble method that sequentially trains multiple models, each trying to correct the mistakes of the previous one. In contrast to bagging, models are therefore not trained independently and their decision is also not simply averaged but weighted afterwards. One specific boosting algorithm, known as AdaBoost, had a huge 
