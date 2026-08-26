@@ -67,7 +67,7 @@ $$
 $$
 
 Due to the linearity of the gradient operation, computing the derivatives can be done
-by averaging all individual derivatives of $\ell$ for each training example.
+by averaging all individual derivatives of $$\ell$$ for each training example.
 
 ## From Gradient Descent to Stochastic Gradient Descent
 

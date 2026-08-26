@@ -77,7 +77,7 @@ Convolution operations in neural networks have of course again several parameter
 
 ## Activation Functions
 
-After applying convolutions, the activation function introduces non-linearity. ReLU (Rectified Linear Unit) is commonly used, defined as \( A(x) = \max(0, x) \). It replaces negative values with zero and retains positive values, allowing networks to handle complex data patterns effectively.
+After applying convolutions, the activation function introduces non-linearity. ReLU (Rectified Linear Unit) is commonly used, defined as $$A(x) = \max(0, x)$$. It replaces negative values with zero and retains positive values, allowing networks to handle complex data patterns effectively.
 
 ## Pooling Layers
 

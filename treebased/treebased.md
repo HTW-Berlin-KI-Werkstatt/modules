@@ -17,8 +17,7 @@ A single tree consists of:
 ## Inference using a decision tree
 
 ![Decision Tree on IRIS dataset](img/decision_tree.png)
-> Example decision tree on the IRIS dataset, image from [wikipedia]
-(https://commons.wikimedia.org/wiki/File:Classification_tree_on_iris_dataset.png)
+> Example decision tree on the IRIS dataset, image from [wikipedia](https://commons.wikimedia.org/wiki/File:Classification_tree_on_iris_dataset.png)
 
 Above image shows a decision tree applied to classification. Performing inference (i.e. predicting the result for an unseen example) is done by traversing the tree from top to bottom. At each internal decision node, the corresponding test is performed and the traversal contains either left or right.
 

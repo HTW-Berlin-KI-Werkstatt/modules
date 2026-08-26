@@ -67,6 +67,6 @@ While YOLO is prominent due to its speed, other object detection models provide 
 
 ## Further ressources
 
-1. Further details explained: [](https://www.datacamp.com/blog/yolo-object-detection-explained)
-2. Ultralytics object detection: [](https://docs.ultralytics.com/de/tasks/detect/)
-3. Yet another blog article on YOLO v1: [](https://towardsdatascience.com/evolution-of-yolo-yolo-version-1-afb8af302bd2)
+1. Further details explained: [datacamp.com](https://www.datacamp.com/blog/yolo-object-detection-explained)
+2. Ultralytics object detection: [docs.ultralytics.com](https://docs.ultralytics.com/de/tasks/detect/)
+3. Yet another blog article on YOLO v1: [towardsdatascience.com](https://towardsdatascience.com/evolution-of-yolo-yolo-version-1-afb8af302bd2)
