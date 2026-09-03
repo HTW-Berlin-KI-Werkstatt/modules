@@ -39,10 +39,14 @@ Let's look at some evaluation and especially splitting techniques to deal with t
 Cross-validation is a robust technique for assessing the performance of a machine learning model. The most common form is k-fold cross-validation:
 - **k-Fold Cross-Validation:** The dataset is split into $$k$$ equal parts. The model is trained on $$k-1$$ parts and tested on the remaining part. This process repeats $$k$$ times, with each part being used exactly once as the test set. The final performance metric is the average of the results from all `k` iterations.
 
-The following code snippet which skips some parts such as data loading shows how to do $$k$$-fold cross-validation in python:
+The following code snippet shows how to do $$k$$-fold cross-validation in python:
 ```python
 from sklearn.model_selection import KFold, cross_val_score
-model = SomeModel()
+from sklearn.datasets import load_iris
+from sklearn.linear_model import LogisticRegression
+
+X, y = load_iris(return_X_y=True)
+model = LogisticRegression(max_iter=1000)
 kf = KFold(n_splits=5, shuffle=True, random_state=42)
 scores = cross_val_score(model, X, y, cv=kf)
 print("Cross-validation scores:", scores)
@@ -64,6 +68,9 @@ Another common strategy is to split the dataset into three distinct sets:
 A typical split might be 60% training, 20% validation, and 20% testing, but this very much depends on the size of the dataset:
 ```python
 from sklearn.model_selection import train_test_split
+from sklearn.datasets import load_iris
+
+X, y = load_iris(return_X_y=True)
 # split into train and temp first
 X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.4)
 # split temp into val and test
@@ -126,6 +133,11 @@ This measure normalizes the overall MSE error with the variance of the ground-tr
 These metrics are easy to obtain in python:
 ```python
 from sklearn.metrics import mean_absolute_error, mean_squared_error, root_mean_squared_error, r2_score
+
+# ground-truth values and predictions of some model
+y_true = [3.0, -0.5, 2.0, 7.0]
+y_pred = [2.5, 0.0, 2.1, 7.8]
+
 mae = mean_absolute_error(y_true, y_pred)
 mse = mean_squared_error(y_true, y_pred)
 rmse = root_mean_squared_error(y_true, y_pred)
@@ -222,6 +234,7 @@ If the number of false positives is high, precision drops significantly.
 Here's an example using Python's Scikit-learn library to compute and visualize the confusion matrix:
 
 ```python
+import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 
 # Assume y_true and y_pred are your true labels and predictions respectively
@@ -234,6 +247,7 @@ cm = confusion_matrix(y_true, y_pred)
 # Display confusion matrix
 disp = ConfusionMatrixDisplay(confusion_matrix=cm)
 disp.plot()
+plt.show()
 
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
 accuracy = accuracy_score(y_true, y_pred)
