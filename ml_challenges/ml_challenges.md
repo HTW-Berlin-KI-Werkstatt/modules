@@ -38,6 +38,8 @@ the given slides and memorized only code snippets from the lecture, you would no
 - **Causes**: 
   - Model complexity (too many parameters).
   - Insufficient training data.
+You can explore the effect of the model complexity yourself in an [interactive under- & overfitting demo](http://ds-demos.fgnussbaum.com/#under_overfitting).
+
 - **Solutions** (we will come to this later):
   - Use simpler models, early stopping, or start from a pre-trained model (fine-tuning, see later).
   - Apply regularization techniques.

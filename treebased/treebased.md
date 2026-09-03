@@ -32,7 +32,7 @@ The learning starts with the root node and tries to find the test that best spli
 a binary classification task, the best split would be one that splits the training data directly into the two classes. However, this is only a perfect scenario, which can not be directly achieved in non-trivial cases.
 We therefore have to measure the quality of a split using certain criteria.
 
-A nice visualization of this process can be found at [mlu-explain](https://mlu-explain.github.io/decision-tree/).
+A nice visualization of this process can be found at [mlu-explain](https://mlu-explain.github.io/decision-tree/) and you can grow trees yourself in an [interactive decision tree demo](http://ds-demos.fgnussbaum.com/#tree_models).
 
 Let $$p_\kappa$$ be the portion of examples belonging to class $$\kappa$$ in the current decision node $$v$$.
 The *entropy* measures how impure the set of examples is:

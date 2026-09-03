@@ -40,7 +40,8 @@ Why are we not using a simple difference between the predicted and the ground-tr
 
 The functions like $$L$$ are also known as **loss functions** in machine learning, they
 express the error made on a training set by a model. Reducing the error by changing the parameters
-of the model appropriately is the goal of the training. 
+of the model appropriately is the goal of the training. An [interactive demo on loss functions](http://ds-demos.fgnussbaum.com/#regression_lossfunctions) lets you explore how parameter changes affect the loss.
+There is also an [interactive logistic regression demo](http://ds-demos.fgnussbaum.com/#logistic_regression) for the classification setting discussed below. 
 
 #### Why Linear Models?
 

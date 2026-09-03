@@ -119,3 +119,7 @@ Various architectures have been developed to optimize CNN performance for specif
 
 A common loss function for classification is Softmax Cross-Entropy. In this setting, the softmax function converts logits (raw model outputs) into probabilities, and cross-entropy measures the difference between predicted probabilities and true labels. We have seen this concept already in a previous lecture.
 
+## Further reading
+
+1. Chapter 10 of ["Understanding Deep Learning" by Simon Prince](https://udlbook.github.io/udlbook/) covers convolutional networks in depth.
+

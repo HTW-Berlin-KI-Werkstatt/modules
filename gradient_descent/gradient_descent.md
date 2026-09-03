@@ -12,6 +12,9 @@ I recommend watching the 3Blue1Brown video on gradient descent:
 
 <iframe width="420" height="315" src="https://www.youtube.com/embed/IHZwWFHWa-w" frameborder="0"> </iframe>
 
+You can also explore how the learning rate and the starting point influence the optimization in an
+[interactive gradient descent demo](http://ds-demos.fgnussbaum.com/#gradient_descent).
+
 
 ## Gradient descent
 

@@ -54,3 +54,4 @@ recursively computing derivatives. There is again a great video by 3blue1brown:
 Another great piece of tutorial is this [video](https://www.youtube.com/watch?v=VMj-3S1tku0) of Andrej Karpathy, where he shows
 how to develop ``micrograd`` - a small library for automatic differentiation with a similar interface as ``pytorch``. This is just a single video in a whole series, which I can highly recommend. Furthermore, there is also a larger blog article about the topic
 from the same author: [Hackers guide to neural networks](https://karpathy.github.io/neuralnets/).
+A more formal treatment can be found in chapter 7 of ["Understanding Deep Learning" by Simon Prince](https://udlbook.github.io/udlbook/).

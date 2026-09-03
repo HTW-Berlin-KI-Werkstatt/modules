@@ -171,7 +171,7 @@ and allows to derive many different metrics explained in the following. Please n
 
 In the following, we will go through several performance metrics for classification.
 There is also a great tutorial at [mlu-explain](https://mlu-explain.github.io/precision-recall/)
-worth reading.
+worth reading and an [interactive demo on decision thresholds and the resulting metrics](http://ds-demos.fgnussbaum.com/#classification_metrics) to play around with.
 
 #### Accuracy
 

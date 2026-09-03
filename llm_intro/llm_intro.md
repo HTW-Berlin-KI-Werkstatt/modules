@@ -16,6 +16,9 @@ Large Language Models are deep learning models trained on vast amounts of textua
 There is again a great introductory video of 3blue1brown on this topic and I highly recommend watching it as a perfect starter:
 <iframe width="420" height="315" src="https://www.youtube.com/embed/LPZh9BOjkQs" frameborder="0"> </iframe>
 
+If you prefer a German and wonderfully simple explanation of how an AI writes text, watch the
+[Sendung mit der Maus episode on this topic](https://www.ardmediathek.de/video/die-maus/wie-schreibt-eine-ki-texte/wdr/Y3JpZDovL3dkci5kZS9CZWl0cmFnLXNvcGhvcmEtMTI0MWQ0Y2ItM2NhMC00MDA4LTg1OWQtMjAzZTFlZTc4NmU4?isChildContent) - highly recommended, and not just for kids 😄.
+
 ### Pretraining by Next-Word-Prediction
 
 As we have seen in the video, an important ingredient of LLMs is their ability to predict future text from past text - or an answer (future text) to a context (past text) depending on your view-point.

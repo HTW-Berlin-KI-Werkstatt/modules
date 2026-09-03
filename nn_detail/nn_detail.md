@@ -12,7 +12,9 @@ Units form the building blocks of complex architectures capable of modeling intr
 
 <iframe width="420" height="315" src="https://www.youtube.com/embed/aircAruvnKk" frameborder="0"> </iframe>
 
-There is also a great visualization again at [mlu-explain](https://mlu-explain.github.io/neural-networks/).
+There is also a great visualization again at [mlu-explain](https://mlu-explain.github.io/neural-networks/) and an [interactive neural network demo](http://ds-demos.fgnussbaum.com/#neural_network) to experiment with.
+
+If you want to dive deeper into the topic, the free book ["Understanding Deep Learning" by Simon Prince](https://udlbook.github.io/udlbook/) is a great companion for this and the following lectures - chapters 3 and 4 cover shallow and deep networks.
 
 ## A single unit
 
