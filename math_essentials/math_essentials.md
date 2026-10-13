@@ -2,7 +2,9 @@
 title: "Math essentials"
 layout: single
 author_profile: true
-author: Erik Rodner
+authors:
+  - Erik Rodner
+  - Laura Maaßen
 toc: false
 classes: wide
 ---
