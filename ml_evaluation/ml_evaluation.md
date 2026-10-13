@@ -169,6 +169,8 @@ The confusion matrix can be represented in a tabular format:
 
 and allows to derive many different metrics explained in the following. Please note that ``confusion_matrix`` in scikit-learn orders rows and columns by label value, i.e. with labels 0 (negative) and 1 (positive), TN appears in the top-left corner.
 
+You have already seen such a table: the binary test example in the [math essentials](/modules/math_essentials/math_essentials.md#probability-and-statistics) sorts 1,000 people by their true state $$K$$ (actual) and the test result $$T$$ (predicted), which gives TP = 9, FN = 1, FP = 99 and TN = 891. Several of the metrics below are conditional probabilities read from this table: recall is $$p(T{=}1 \mid K{=}1) = 9/10 = 0.9$$, while precision is $$p(K{=}1 \mid T{=}1) = 9/108 \approx 0.08$$. With only 1% positive examples, a high recall can go along with a very low precision.
+
 In the following, we will go through several performance metrics for classification.
 There is also a great tutorial at [mlu-explain](https://mlu-explain.github.io/precision-recall/)
 worth reading and an [interactive demo on decision thresholds and the resulting metrics](http://ds-demos.fgnussbaum.com/#classification_metrics) to play around with.
