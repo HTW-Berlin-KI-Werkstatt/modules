@@ -8,7 +8,7 @@ classes: wide
 ---
 
 As we have seen in the previous examples, classical machine learning models require vectors as inputs. These vectors are
-often referred to as *feature vectors* or *embeddings* or in more general *representations*. We will come to the subtle differences later on.
+often referred to as *feature vectors* or *embeddings* or in more general *representations*. We will come to the subtle differences below.
 But how do we turn our inputs (text, image, video, etc.) into vectors? 
 What would be good representations?
 Let's answer the last question first.
@@ -18,9 +18,8 @@ Let's answer the last question first.
 This question is best answered for classification tasks and the goal is always to have a representation that is very
 easy for the classification model to learn from:
 1. **Discriminative Power:** The ability to distinguish between different classes effectively.
-2. **Invariance**: Stability to transformations such as rotation, scaling, or translation in the input data.
-3. **Noise Robustness:** The ability to handle and perform well even when the data contains noise or irrelevant features.
-4. **Relevant Features:** Focusing on relevant features.
+2. **Invariance**: Stability to transformations of the input that do not change the class, such as rotation, scaling, or translation (but be careful: rotating a 6 gives a 9).
+3. **Noise Robustness:** The ability to handle and perform well even when the data contains noise or irrelevant information.
 
 Some traditional machine learning scientists would still mention *low dimensionality* here, but this is open to debate.
 
@@ -89,7 +88,7 @@ print(f"Feature vectors:\n{feature_vectors}")
 ```
 
 In this example, the `CountVectorizer` from scikit-learn does the whole job. 
-The result is a matrix where each row corresponds to a document and each column corresponds to a word's frequency in that document.
+The result is a matrix where each row corresponds to a document and each column contains how often one word of the vocabulary occurs in that document.
 
 ## Learned Embeddings
 
@@ -99,7 +98,7 @@ common to be used. We will learn later on how these embeddings are learned, let'
 
 ### NLP Example: Using CLIP Model to Obtain Text Embeddings
 
-For this example, we'll use the CLIP model of Open AI [(Radford et al., 2021)](https://arxiv.org/abs/2103.00020) to obtain text embeddings. The embedding model consists of several parameters, which
+For this example, we'll use the CLIP model of OpenAI [(Radford et al., 2021)](https://arxiv.org/abs/2103.00020) to obtain text embeddings. The embedding model has about 150 million parameters, which
 we obtain from [huggingface.co](https://huggingface.co) - an amazing open portal consisting of models, datasets, and benchmarks.
 Their python module ``transformers`` works like a charm and takes care of the download and caching in the background:
 
@@ -119,9 +118,11 @@ def get_text_embedding(text):
     # Generate the embedding
     with torch.no_grad():
         outputs = model.get_text_features(**inputs)
+    # newer versions of transformers return an output object instead of a tensor
+    outputs = getattr(outputs, "pooler_output", outputs)
 
     # Return the embedding as a numpy array
-    return outputs[0].cpu().numpy().flatten()
+    return outputs[0].cpu().numpy()
 
 # Getting the embedding for an example text
 example_text = "This is an example sentence."
@@ -149,16 +150,17 @@ def get_image_embedding(image_path):
     # Generate the embedding
     with torch.no_grad():
         outputs = model.get_image_features(**inputs)
+    outputs = getattr(outputs, "pooler_output", outputs)
 
     # Return the embedding as a numpy array
-    return outputs[0].cpu().numpy().flatten()
+    return outputs[0].cpu().numpy()
 ```
 
-This is not even the end of the story: in CLIP, text and image share the same embedding space. If an image $$I$$ is semantically close to a text $$T$$,
-their embeddings will have a close distance. This offers an enormous potential for fast algorithm development, something that you might have even used beforehand.
+This is not even the end of the story: in CLIP, text and image share the same embedding space. If an image $$I$$ matches a text $$T$$,
+the [cosine similarity](/modules/math_essentials/math_essentials.md#linear-algebra) of their embeddings is higher than for unrelated pairs. This offers an enormous potential for fast algorithm development, for example searching a photo collection with a text query.
 
 ## Further reading
 
-1. Embedding for audio signals: Wav2Vec [(Baevski et al, 2020)](https://arxiv.org/abs/2006.11477)
-2. One of the first papers on word embeddings: Word2Vec [(Mikolov et al, 2013)](https://arxiv.org/pdf/1301.3781)
+1. Embedding for audio signals: wav2vec 2.0 [(Baevski et al, 2020)](https://arxiv.org/abs/2006.11477)
+2. One of the most influential papers on word embeddings: Word2Vec [(Mikolov et al, 2013)](https://arxiv.org/pdf/1301.3781)
 3. Great tool for exploring embeddings: [Embedding Projector](https://projector.tensorflow.org/)
